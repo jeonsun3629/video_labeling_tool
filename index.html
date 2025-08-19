@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 동영상 라벨링 도구 - 4단계 워크플로우</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>🎬 AI 동영상 라벨링 도구</h1>
+        <p class="subtitle">수동 라벨링 → 모델 학습 → AI 자동 라벨링 비디오 생성 → 데이터 검증</p>
+    </div>
+
+    <!-- 워크플로우 진행 상태 표시 -->
+    <div class="workflow-progress">
+        <div class="step" id="progress-step1">
+            <div class="step-number">1</div>
+            <div class="step-title">수동 라벨링</div>
+            <div class="step-status">대기</div>
+        </div>
+        <div class="step" id="progress-step2">
+            <div class="step-number">2</div>
+            <div class="step-title">모델 학습</div>
+            <div class="step-status">대기</div>
+        </div>
+        <div class="step" id="progress-step3">
+            <div class="step-number">3</div>
+            <div class="step-title">AI 자동 라벨링 비디오 생성</div>
+            <div class="step-status">대기</div>
+        </div>
+        <div class="step" id="progress-step4">
+            <div class="step-number">4</div>
+            <div class="step-title">데이터 검증</div>
+            <div class="step-status">대기</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- 비디오 플레이어 영역 -->
+        <div class="video-section">
+            <div class="section-header">
+                <h2>📹 비디오 업로드 및 플레이어</h2>
+            </div>
+            
+            <input type="file" id="videoUpload" accept="video/*" class="file-input">
+            
+            <div id="video-wrapper">
+                <video id="videoPlayer" controls></video>
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="video-controls">
+                <button id="prevFrameBtn">◀ 이전 프레임</button>
+                <button id="nextFrameBtn">다음 프레임 ▶</button>
+                <span id="frameInfo">프레임: 0 / 0</span>
+            </div>
+
+            <div class="video-timeline">
+                <div class="timeline-container">
+                    <span id="currentTime">00:00</span>
+                    <input type="range" id="videoSlider" min="0" max="100" value="0" step="0.1" class="video-slider">
+                    <span id="totalDuration">00:00</span>
+                </div>
+                <div class="playback-controls">
+                    <button id="playPauseBtn">▶ 재생</button>
+                    <span class="playback-speed">
+                        <label for="speedSelect">재생 속도:</label>
+                        <select id="speedSelect">
+                            <option value="0.25">0.25x</option>
+                            <option value="0.5">0.5x</option>
+                            <option value="1" selected>1x</option>
+                            <option value="1.5">1.5x</option>
+                            <option value="2">2x</option>
+                        </select>
+                    </span>
+                </div>
+            </div>
+
+            <!-- 모델 선택 섹션 -->
+            <div class="model-selection" id="modelSelection">
+                <h4>🤖 AI 모델 선택</h4>
+                <div class="model-options">
+                    <div class="model-option" data-model="yolo_dinov2">
+                        <div class="model-card active" id="model-yolo-dinov2">
+                            <div class="model-header">
+                                <span class="model-icon">🎯🧠</span>
+                                <span class="model-name">YOLO + DINOv2</span>
+                                <span class="model-badge default">기본</span>
+                            </div>
+                            <div class="model-description">
+                                객체 탐지 + 학습 가능한 특징 분석<br>
+                                <small>범용 분류, 패턴 학습 지원</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="model-option" data-model="yolo_clip">
+                        <div class="model-card" id="model-yolo-clip">
+                            <div class="model-header">
+                                <span class="model-icon">🎯🔍</span>
+                                <span class="model-name">YOLO + CLIP</span>
+                                <span class="model-badge defect">불량검사</span>
+                            </div>
+                            <div class="model-description">
+                                객체 탐지 + 자연어 기반 불량 검사<br>
+                                <small>텍스트 쿼리로 defect 탐지</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="switchModelBtn" class="btn-model-switch" disabled>모델 전환</button>
+            </div>
+
+            <!-- 시스템 상태 표시 -->
+            <div class="system-status" id="systemStatus">
+                <h4>📊 시스템 상태</h4>
+                <div id="statusMessage">서버 연결 확인 중...</div>
+                <div id="currentModel" class="current-model">현재 모델: YOLO + DINOv2 (로딩 중...)</div>
+            </div>
+        </div>
+
+        <!-- 워크플로우 단계별 섹션 -->
+        <div class="workflow-sections">
+            
+            <!-- 1단계: 수동 라벨링 -->
+            <div class="workflow-step" id="step1-section">
+                <div class="step-header">
+                    <h3>1단계: 수동 라벨링</h3>
+                    <div class="step-description">마우스로 박스를 그리고 라벨을 입력하여 객체를 수동으로 라벨링합니다.</div>
+                </div>
+                
+                <div class="color-guide">
+                    <span class="color-indicator manual">■</span> 수동 라벨링 |
+                    <span class="color-indicator auto">■</span> AI 자동 라벨링 |
+                    <span class="color-indicator custom">■</span> 커스텀 모델 |
+                    <span class="color-indicator pending">■</span> 저장 대기 중
+                </div>
+                
+                <div class="manual-labeling-controls">
+                    <input type="text" id="labelText" placeholder="라벨 입력 (예: laptop, person, camera)">
+                    <button id="saveAnnotationBtn" class="btn-primary">현재 박스 저장</button>
+                </div>
+                
+                <div class="manual-stats-enhanced" id="manualStats">
+                    <div class="stats-header">수동 라벨링 데이터: 0개</div>
+                    <div class="stats-detail">아직 라벨링된 데이터가 없습니다.</div>
+                </div>
+            </div>
+
+            <!-- 2단계: 모델 학습 -->
+            <div class="workflow-step" id="step2-section">
+                <div class="step-header">
+                    <h3>2단계: 커스텀 모델 학습</h3>
+                    <div class="step-description">수동 라벨링 데이터를 사용하여 AI 모델을 개선합니다.</div>
+                </div>
+                
+                <!-- YOLO + DINOv2 패턴 학습 섹션 -->
+                <div class="dinov2-learning-section model-specific" data-model="yolo_dinov2">
+                    <h4>🧠 DINOv2 지능형 패턴 학습</h4>
+                    <div class="dinov2-description">
+                        수동 라벨링한 데이터에서 DINOv2가 각 라벨의 시각적 패턴을 학습하여 더 정확한 분류를 가능하게 합니다.
+                    </div>
+                    <div class="dinov2-controls">
+                        <button id="learnDinov2PatternsBtn" class="btn-dinov2" disabled>🎯 DINOv2 패턴 학습</button>
+                        <button id="getDinov2InfoBtn" class="btn-info" disabled>📊 학습된 패턴 정보</button>
+                    </div>
+                    <div id="dinov2Status" class="status-display"></div>
+                    <div id="dinov2PatternsInfo" class="patterns-info-display"></div>
+                </div>
+
+                <!-- YOLO + CLIP 불량 검사 설정 섹션 -->
+                <div class="clip-defect-section model-specific" data-model="yolo_clip" style="display: none;">
+                    <h4>🔍 CLIP 불량품 검사 설정</h4>
+                    <div class="clip-description">
+                        자연어 쿼리를 사용하여 불량품을 자동으로 탐지합니다. 원하는 검사 항목을 텍스트로 입력하세요.
+                    </div>
+                    <div class="clip-controls">
+                        <div class="defect-queries">
+                            <label>불량 검사 쿼리 (한 줄에 하나씩):</label>
+                            <textarea id="defectQueriesText" rows="4" placeholder="a photo of a defective product&#10;a photo of a cracked surface&#10;a photo of a damaged component&#10;a photo of a broken item">a photo of a defective product
+a photo of a cracked surface
+a photo of a damaged component
+a photo of a broken item</textarea>
+                        </div>
+                        <div class="defect-threshold">
+                            <label>불량 판정 임계값: <span id="defectThresholdValue">0.7</span></label>
+                            <input type="range" id="defectThresholdSlider" min="0.3" max="0.9" step="0.05" value="0.7">
+                        </div>
+                        <button id="updateClipSettingsBtn" class="btn-clip">🔧 CLIP 설정 업데이트</button>
+                    </div>
+                    <div id="clipStatus" class="status-display"></div>
+                </div>
+                
+                <!-- YOLO 커스텀 모델 학습 섹션 -->
+                <div class="yolo-training-section">
+                    <h4>🚀 YOLO 커스텀 모델 학습</h4>
+                    <div class="training-controls">
+                        <label for="epochsInput">학습 횟수 (Epochs):</label>
+                        <input type="number" id="epochsInput" value="30" min="10" max="200">
+                        <button id="trainModelBtn" class="btn-secondary" disabled>🚀 모델 학습 시작</button>
+                    </div>
+                    <div id="trainingStatus" class="status-display"></div>
+                </div>
+            </div>
+
+            <!-- 3단계: AI 자동 라벨링 비디오 생성 -->
+            <div class="workflow-step" id="step3-section">
+                <div class="step-header">
+                    <h3>3단계: AI 자동 라벨링 비디오 생성</h3>
+                    <div class="step-description">학습된 커스텀 모델 또는 기본 YOLO 모델로 전체 비디오를 자동 분석하고 라벨링된 비디오를 생성합니다.</div>
+                </div>
+                
+                <div class="auto-labeling-controls">
+                    <button id="createBaseVideoBtn" class="btn-auto">🤖 기본 YOLO 모델로 비디오 생성</button>
+                    <button id="createCustomVideoBtn" class="btn-custom" disabled>🚀 커스텀 모델로 비디오 생성</button>
+                </div>
+                
+                <div class="detection-settings">
+                    <h4>🎯 스마트 탐지 설정</h4>
+                    <label>
+                        신뢰도 임계값: <span id="confidenceValue">0.2</span>
+                        <input type="range" id="confidenceSlider" min="0.1" max="0.8" step="0.05" value="0.2">
+                    </label>
+                    <label>
+                        <input type="checkbox" id="denseAnalysisCheckbox" checked>
+                        🚀 고밀도 분석 (초당 4프레임, YOLO+DINOv2 최대 활용)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="smartMemoryCheckbox" checked>
+                        🧠 스마트 메모리 관리 (자동 DINOv2 조절)
+                    </label>
+                    
+                    <div class="memory-info">
+                        <span>💾 메모리 상태: <span id="memoryStatus">최적화됨</span></span>
+                    </div>
+                </div>
+                
+                <div id="videoGenerationStatus" class="status-display"></div>
+                
+                <div class="auto-stats" id="autoStats">
+                    자동 라벨링 데이터: 0개
+                </div>
+            </div>
+
+            <!-- 4단계: 데이터 검증 및 내보내기 -->
+            <div class="workflow-step" id="step4-section">
+                <div class="step-header">
+                    <h3>4단계: 데이터 검증 및 내보내기</h3>
+                    <div class="step-description">전체 라벨링 데이터를 검토하고 JSON 형태로 내보냅니다.</div>
+                </div>
+                
+                <div class="data-summary" id="dataSummary">
+                    <div class="summary-item">
+                        <span class="label">수동 라벨링:</span>
+                        <span class="value" id="manualCount">0개</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">자동 라벨링:</span>
+                        <span class="value" id="autoCount">0개</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="label">전체 데이터:</span>
+                        <span class="value" id="totalCount">0개</span>
+                    </div>
+                </div>
+                
+                <div class="data-controls">
+                    <button id="exportBtn" class="btn-export" disabled>📄 JSON 데이터 내보내기</button>
+                    <button id="clearDataBtn" class="btn-danger">🗑️ 모든 데이터 삭제</button>
+                </div>
+                
+                <div class="json-viewer">
+                    <h4>📋 라벨링 데이터 미리보기</h4>
+                    <pre id="annotationsOutput" class="json-display">데이터가 없습니다.</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
