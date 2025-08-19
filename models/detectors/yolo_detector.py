@@ -16,7 +16,11 @@ class YOLODetector(BaseDetector):
         self.model_path = kwargs.get('model_path', YOLO_MODEL_PATH)
         self.confidence_threshold = kwargs.get('confidence_threshold', YOLO_CONFIDENCE_THRESHOLD)
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        # 커스텀 모델 여부 확인 (custom_training 폴더의 모델인지 체크)
+        self.is_custom_model = 'custom_training' in str(self.model_path)
         print(f"🔧 YOLODetector initialized with YOLOv11 model: {self.model_path}")
+        if self.is_custom_model:
+            print(f"🎯 Custom model detected: {self.model_path}")
         
     def load_model(self) -> bool:
         """YOLO 모델 로드"""

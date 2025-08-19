@@ -1,5 +1,5 @@
 """
-DINOv3 분류기 구현 (DINOv2에서 업그레이드)
+DINOv2 분류기 구현
 """
 import torch
 import numpy as np
@@ -7,59 +7,59 @@ import cv2
 from PIL import Image
 from typing import List, Dict, Any, Optional
 from ..base.base_classifier import BaseClassifier
-from config.settings import DINOV3_MODEL_NAME, DINOV3_SIMILARITY_THRESHOLD
+from config.settings import DINOV2_MODEL_NAME, DINOV2_SIMILARITY_THRESHOLD
 
 class DINOv2Classifier(BaseClassifier):
-    """DINOv3 기반 특징 추출 및 분류기 (DINOv2에서 업그레이드)"""
+    """DINOv2 기반 특징 추출 및 분류기"""
     
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.model_name = kwargs.get('model_name', DINOV3_MODEL_NAME)
-        self.similarity_threshold = kwargs.get('similarity_threshold', DINOV3_SIMILARITY_THRESHOLD)
+        self.model_name = kwargs.get('model_name', DINOV2_MODEL_NAME)
+        self.similarity_threshold = kwargs.get('similarity_threshold', DINOV2_SIMILARITY_THRESHOLD)
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
     def load_model(self) -> bool:
-        """DINOv3 모델 로드 (DINOv2 giant 사용)"""
+        """DINOv2 모델 로드"""
         try:
-            print(f"📥 Loading DINOv3 model: {self.model_name}")
+            print(f"📥 Loading DINOv2 model: {self.model_name}")
             
-            # Hugging Face transformers 시도 (DINOv2 giant이 현재 최고 성능)
+            # Hugging Face transformers 시도
             try:
                 from transformers import AutoProcessor, AutoModel
                 self.processor = AutoProcessor.from_pretrained(self.model_name)
                 self.model = AutoModel.from_pretrained(self.model_name)
                 self.model = self.model.to(self.device)
-                print("✅ DINOv3 (Hugging Face) loaded successfully!")
+                print("✅ DINOv2 (Hugging Face) loaded successfully!")
                 return True
             except ImportError:
                 print("⚠️  Transformers not available, trying torch.hub...")
                 
-            # torch.hub 대안 (DINOv2 giant 사용)
+            # torch.hub 대안 (DINOv2 base 사용)
             try:
-                # DINOv2 giant 모델 사용 (현재 가장 성능이 좋은 모델)
-                self.model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitg14')
+                # DINOv2 base 모델 사용
+                self.model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14')
                 if hasattr(self.model, 'to'):
                     self.model = self.model.to(self.device)
                 self.processor = None
-                print("✅ DINOv3 (torch.hub - giant model) loaded successfully!")
+                print("✅ DINOv2 (torch.hub - base model) loaded successfully!")
                 return True
             except Exception as e:
-                print(f"⚠️  DINOv3 loading failed, trying base model: {e}")
+                print(f"⚠️  DINOv2 base loading failed, trying small model: {e}")
                 
-                # 대안: 기본 모델 사용
+                # 대안: 더 작은 모델 사용
                 try:
-                    self.model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vitb14')
+                    self.model = torch.hub.load('facebookresearch/dinov2', 'dinov2_vits14')
                     if hasattr(self.model, 'to'):
                         self.model = self.model.to(self.device)
                     self.processor = None
-                    print("✅ DINOv3 (base model fallback) loaded successfully!")
+                    print("✅ DINOv2 (small model fallback) loaded successfully!")
                     return True
                 except Exception as e2:
-                    print(f"❌ All DINOv3 loading attempts failed: {e2}")
+                    print(f"❌ All DINOv2 loading attempts failed: {e2}")
                     return False
                 
         except Exception as e:
-            print(f"❌ Failed to load DINOv3 model: {e}")
+            print(f"❌ Failed to load DINOv2 model: {e}")
             return False
     
     def extract_features(self, frame: np.ndarray, bbox: List[int]) -> Optional[np.ndarray]:

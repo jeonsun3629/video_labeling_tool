@@ -26,20 +26,14 @@ current_custom_model_path = None
 training_data_accumulator = []
 
 # 시작 시 모델 초기화
-print("🚀 Initializing models at startup...")
+print("🚀 Initializing AI models...")
 init_result = model_manager.initialize_models()
 if init_result['detector_loaded'] and init_result['classifier_loaded']:
-    print("✅ All models loaded successfully at startup!")
-elif init_result['detector_loaded']:
-    print("⚠️  Detector loaded, but classifier failed. Some features may be limited.")
-elif init_result['classifier_loaded']:
-    print("⚠️  Classifier loaded, but detector failed. Detection will not work.")
+    print("✅ Models ready!")
+elif init_result['errors']:
+    print(f"⚠️  Partial loading: {', '.join(init_result['errors'][:2])}")
 else:
-    print("❌ Model loading failed. Please check logs and try manual initialization.")
-
-if init_result['errors']:
-    for error in init_result['errors']:
-        print(f"❌ {error}")
+    print("❌ Model loading failed")
 
 @app.route('/')
 def index():
@@ -440,24 +434,17 @@ def optimize_memory():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    print("=" * 60)
-    print("🎬 Starting Modularized Video Labeling Backend Server...")
-    print("=" * 60)
+    print("🎬 Video Labeling Server Starting...")
     
     # 모델 상태 확인
     detector = model_manager.get_detector()
     classifier = model_manager.get_classifier()
     
     if detector and detector.is_loaded():
-        print(f"🎯 Detector ready: {model_manager.detector_type}")
-    else:
-        print("⚠️  Detector not loaded. Please check the logs above.")
-    
+        print(f"🎯 {model_manager.detector_type}")
     if classifier and classifier.is_loaded():
-        print(f"🧠 Classifier ready: {model_manager.classifier_type}")
-    else:
-        print("⚠️  Classifier not loaded. Some features may be limited.")
+        print(f"🧠 {model_manager.classifier_type}")
     
-    print(f"🌐 Server starting on http://{HOST}:{PORT}")
-    print("=" * 60)
+    print(f"🌐 http://localhost:{PORT}")
+    print("-" * 40)
     app.run(debug=DEBUG, host=HOST, port=PORT)

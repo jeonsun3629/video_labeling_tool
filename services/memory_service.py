@@ -15,10 +15,7 @@ class MemoryService:
         self.memory_limit = total_memory * MEMORY_LIMIT_RATIO
         self.dinov2_threshold = total_memory * DINOV2_THRESHOLD_RATIO
         
-        print(f"🚀 Memory service initialized")
-        print(f"📊 Total memory: {total_memory:.1f}MB")
-        print(f"📊 Memory limit: {self.memory_limit:.1f}MB")
-        print(f"📊 DINOv2 safe zone: {self.dinov2_threshold:.1f}MB")
+        print(f"🚀 Memory service ready ({total_memory:.0f}MB available)")
     
     def _get_available_memory(self) -> float:
         """사용 가능한 메모리 계산 (MB)"""

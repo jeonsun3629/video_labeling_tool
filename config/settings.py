@@ -11,35 +11,27 @@ TRAINING_FOLDER = BASE_DIR / 'custom_training'
 
 # 모델 설정
 AVAILABLE_DETECTORS = {
-    'yolo_dinov3': 'models.detectors.yolo_dinov3_hybrid_detector.YOLODINOv3HybridDetector',  # YOLO + DINOv3 하이브리드
+    'yolo_dinov2': 'models.detectors.yolo_dinov2_hybrid_detector.YOLODINOv2HybridDetector',  # YOLO + DINOv2 하이브리드
     'yolo_clip': 'models.detectors.yolo_clip_hybrid_detector.YOLOCLIPHybridDetector',  # YOLO + CLIP 하이브리드
-    # 레거시 호환성
-    'yolo_dinov2': 'models.detectors.yolo_dinov3_hybrid_detector.YOLODINOv3HybridDetector'  # DINOv3로 리디렉션
 }
 
 AVAILABLE_CLASSIFIERS = {
-    'dinov3': 'models.classifiers.dinov3_classifier.DINOv3Classifier',  # 새로운 DINOv3 분류기
+    'dinov2': 'models.classifiers.dinov2_classifier.DINOv2Classifier',  # DINOv2 분류기
     'clip': 'models.classifiers.clip_classifier.CLIPClassifier',
     'universal': 'models.classifiers.universal_classifier.UniversalClassifier',
-    # 레거시 호환성
-    'dinov2': 'models.classifiers.dinov3_classifier.DINOv3Classifier'  # DINOv3로 리디렉션
 }
 
 # 기본 모델 설정
-DEFAULT_DETECTOR = 'yolo_dinov3'  # YOLO + DINOv3 하이브리드를 기본으로
-DEFAULT_CLASSIFIER = 'dinov3'
+DEFAULT_DETECTOR = 'yolo_dinov2'  # YOLO + DINOv2 하이브리드를 기본으로
+DEFAULT_CLASSIFIER = 'dinov2'
 
 # YOLOv11 설정 (업그레이드)
 YOLO_MODEL_PATH = 'yolo11n.pt'  # YOLOv11 nano 모델
 YOLO_CONFIDENCE_THRESHOLD = 0.15
 
-# DINOv3 설정 (실제 DINOv3 모델 사용)
-DINOV3_MODEL_NAME = 'dinov3_vitb16'  # DINOv3 ViT-Base 모델
-DINOV3_SIMILARITY_THRESHOLD = 0.7
-
-# 레거시 호환성을 위한 별칭
-DINOV2_MODEL_NAME = DINOV3_MODEL_NAME
-DINOV2_SIMILARITY_THRESHOLD = DINOV3_SIMILARITY_THRESHOLD
+# DINOv2 설정 (실제 DINOv2 모델 사용)
+DINOV2_MODEL_NAME = 'facebook/dinov2-base'  # DINOv2 ViT-Base 모델
+DINOV2_SIMILARITY_THRESHOLD = 0.7
 
 # CLIP 설정 (미래 확장용)
 CLIP_MODEL_NAME = 'openai/clip-vit-base-patch32'

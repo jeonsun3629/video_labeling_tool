@@ -437,6 +437,11 @@ body {
     color: white;
 }
 
+.model-badge.hybrid {
+    background: #e67e22;
+    color: white;
+}
+
 .model-badge.defect {
     background: #FF9800;
     color: white;
@@ -840,7 +845,65 @@ button:disabled {
     box-shadow: none !important;
 }
 
-/* DINOv2 학습 섹션 */
+/* DINOv2 커스텀 학습 섹션 */
+.dinov2-learning-section {
+    background: linear-gradient(135deg, rgba(46, 204, 113, 0.1), rgba(255, 255, 255, 0.95));
+    border: 2px solid rgba(46, 204, 113, 0.3);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 8px 20px rgba(46, 204, 113, 0.1);
+}
+
+.dinov2-learning-section h4 {
+    color: #2ecc71;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+}
+
+.dinov2-description {
+    color: #666;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+.dinov2-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-dinov2 {
+    background: linear-gradient(45deg, #2ecc71, #27ae60);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.btn-dinov2:hover {
+    background: linear-gradient(45deg, #27ae60, #229954);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+}
+
+.btn-dinov2:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+
+
+
+/* DINOv2 학습 섹션 (레거시) */
 .dinov2-learning-section {
     background: linear-gradient(135deg, rgba(155, 89, 182, 0.1), rgba(255, 255, 255, 0.95));
     border: 2px solid rgba(155, 89, 182, 0.3);

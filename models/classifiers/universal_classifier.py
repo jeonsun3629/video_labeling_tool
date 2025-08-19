@@ -70,6 +70,11 @@ class UniversalClassifier(BaseClassifier):
             return False
             
         print("🧠 Universal classifier 패턴 학습 시작...")
+        print("🗑️ 기존 학습된 패턴 초기화...")
+        
+        # 기존 패턴 데이터 초기화
+        self.label_features = {}
+        self.feature_clusters = {}
         
         if not annotations:
             print("⚠️ 수동 라벨링 데이터가 없습니다.")
@@ -191,3 +196,53 @@ class UniversalClassifier(BaseClassifier):
         except Exception as e:
             print(f"패턴 로드 오류: {e}")
             return False
+    
+    def has_learned_patterns(self) -> bool:
+        """학습된 패턴이 있는지 확인"""
+        return len(self.label_features) > 0
+    
+    def classify_as_custom_object(self, features: np.ndarray) -> Optional[str]:
+        """특징을 사용하여 학습된 커스텀 객체인지 판별"""
+        if features is None:
+            print("❌ Features is None, cannot classify")
+            return None
+            
+        if not self.has_learned_patterns():
+            print("❌ No learned patterns available")
+            return None
+        
+        features_flat = features.flatten()
+        best_label = None
+        best_similarity = 0
+        all_similarities = []
+        
+        print(f"🔍 Checking against {len(self.feature_clusters)} learned labels (threshold: {self.similarity_threshold})")
+        
+        # 모든 학습된 라벨에 대해 유사도 계산
+        for label, cluster_info in self.feature_clusters.items():
+            if 'centroids' in cluster_info:
+                max_sim_for_label = 0
+                for i, centroid in enumerate(cluster_info['centroids']):
+                    similarity = cosine_similarity([features_flat], [centroid])[0][0]
+                    max_sim_for_label = max(max_sim_for_label, similarity)
+                    
+                    if similarity > best_similarity:
+                        best_similarity = similarity
+                        if similarity > self.similarity_threshold:
+                            best_label = label
+                
+                all_similarities.append((label, max_sim_for_label))
+                print(f"  📊 {label}: {max_sim_for_label:.3f} {'✅' if max_sim_for_label > self.similarity_threshold else '❌'}")
+        
+        # 임계값을 넘는 유사도를 가진 라벨이 있으면 반환
+        if best_label and best_similarity > self.similarity_threshold:
+            confidence = best_similarity * 100
+            print(f"🎯 Custom object MATCH: {best_label} (신뢰도: {confidence:.1f}%)")
+            return best_label
+        else:
+            print(f"❌ No match found (best: {best_similarity:.3f}, threshold: {self.similarity_threshold})")
+            return None
+    
+    def get_learned_labels(self) -> List[str]:
+        """학습된 라벨 목록 반환"""
+        return list(self.label_features.keys())

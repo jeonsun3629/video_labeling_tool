@@ -64,13 +64,13 @@ class ModelManager:
             if new_detector and new_detector.load_model():
                 self.current_detector = new_detector
                 self.detector_type = detector_type
-                print(f"✅ Switched to detector: {detector_type}")
+                print(f"✅ Detector: {detector_type}")
                 return True
             else:
-                print(f"❌ Failed to switch to detector: {detector_type}")
+                print(f"❌ Failed: {detector_type}")
                 return False
         except Exception as e:
-            print(f"❌ Error switching detector: {e}")
+            print(f"❌ Error: {str(e)[:50]}")
             return False
     
     def switch_classifier(self, classifier_type: str, **kwargs) -> bool:
@@ -87,13 +87,13 @@ class ModelManager:
                     if dinov2_classifier and dinov2_classifier.load_model():
                         self.current_classifier.set_feature_extractor(dinov2_classifier)
                 
-                print(f"✅ Switched to classifier: {classifier_type}")
+                print(f"✅ Classifier: {classifier_type}")
                 return True
             else:
-                print(f"❌ Failed to switch to classifier: {classifier_type}")
+                print(f"❌ Failed: {classifier_type}")
                 return False
         except Exception as e:
-            print(f"❌ Error switching classifier: {e}")
+            print(f"❌ Error: {str(e)[:50]}")
             return False
     
     def get_detector(self) -> Optional[BaseDetector]:

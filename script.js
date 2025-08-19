@@ -159,9 +159,13 @@ function updateButtonStates() {
     const manualAnnotations = annotations.filter(ann => ann.source === 'manual' || !ann.source);
     trainModelBtn.disabled = manualAnnotations.length === 0;
     
-    // DINOv2 패턴 학습 - 수동 라벨링 데이터가 있어야 함
-    learnDinov2PatternsBtn.disabled = !currentVideoPath || manualAnnotations.length === 0;
-    getDinov2InfoBtn.disabled = false; // 정보 조회는 항상 가능
+    // DINOv2 패턴 학습 버튼들
+    if (learnDinov2PatternsBtn) {
+        learnDinov2PatternsBtn.disabled = !currentVideoPath || manualAnnotations.length === 0;
+    }
+    if (getDinov2InfoBtn) {
+        getDinov2InfoBtn.disabled = false; // 정보 조회는 항상 가능
+    }
     
     // 3단계: AI 자동 라벨링 비디오 생성 - 비디오가 업로드되어야 함
     createBaseVideoBtn.disabled = !currentVideoPath;
@@ -189,8 +193,9 @@ function updateDataStatistics() {
     
     // 워크플로우 상태 업데이트
     workflowState.step1_manual = manualAnnotations.length > 0;
-    workflowState.step3_video = autoAnnotations.length > 0;
-    workflowState.step4_data = annotations.length > 0;
+    // step2_training은 학습 완료 시에만 true로 설정 (별도 함수에서 처리)
+    // step3_video는 비디오 생성 완료 시에만 true로 설정 (별도 함수에서 처리)  
+    workflowState.step4_data = autoAnnotations.length > 0; // 자동 라벨링 데이터가 추가될 때 완료
     
     updateWorkflowProgress();
 }
@@ -488,13 +493,19 @@ trainModelBtn.addEventListener('click', async () => {
 });
 
 // DINOv2 패턴 학습 이벤트 핸들러
-learnDinov2PatternsBtn.addEventListener('click', async () => {
-    await learnDinov2Patterns();
-});
+if (learnDinov2PatternsBtn) {
+    learnDinov2PatternsBtn.addEventListener('click', async () => {
+        await learnDinov2Patterns();
+    });
+}
 
-getDinov2InfoBtn.addEventListener('click', async () => {
-    await getDinov2PatternsInfo();
-});
+if (getDinov2InfoBtn) {
+    getDinov2InfoBtn.addEventListener('click', async () => {
+        await getDinov2PatternsInfo();
+    });
+}
+
+
 
 async function trainCustomModel() {
     if (!currentVideoPath) {
@@ -678,9 +689,150 @@ function displayDinov2PatternsInfo(learnedLabels) {
 }
 
 function updateDinov2Status(message, type) {
-    dinov2Status.textContent = message;
-    dinov2Status.className = `status-display status-${type}`;
+    if (dinov2Status) {
+        dinov2Status.textContent = message;
+        dinov2Status.className = `status-display status-${type}`;
+    }
 }
+
+// =================
+// DINOv2 패턴 학습 함수들
+// =================
+
+async function learnDinov2Patterns() {
+    // DINOv2 패턴 학습 실행
+    if (!currentVideoPath) {
+        alert('먼저 비디오를 업로드해주세요.');
+        return;
+    }
+    
+    const manualAnnotations = annotations.filter(ann => ann.source === 'manual' || !ann.source);
+    if (manualAnnotations.length === 0) {
+        alert('수동 라벨링 데이터가 없습니다. 먼저 수동으로 몇 개의 객체를 라벨링해주세요.');
+        return;
+    }
+    
+    try {
+        updateDinov2Status(`🧠 DINOv2 커스텀 패턴 학습 시작...\n- 학습 데이터: ${manualAnnotations.length}개\n- 라벨 종류: ${new Set(manualAnnotations.map(ann => ann.label)).size}개\n- 모드: 커스텀 객체 전용`, 'info');
+        
+        learnDinov2PatternsBtn.disabled = true;
+        
+        const response = await fetch('http://localhost:5000/api/learn_patterns', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                video_path: currentVideoPath,
+                annotations: annotations
+            })
+        });
+        
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            // 2단계 완료 표시
+            workflowState.step2_training = true;
+            
+            updateDinov2Status(
+                `✅ DINOv2 커스텀 패턴 학습 완료!\n` +
+                `- 학습된 라벨: ${Object.keys(data.learned_labels || {}).length}개\n` +
+                `- 총 샘플: ${Object.values(data.learned_labels || {}).reduce((sum, info) => sum + (info.sample_count || 0), 0)}개\n` +
+                `🎯 이제 해당 객체들만 정확히 탐지할 수 있습니다!`,
+                'success'
+            );
+            
+            // 학습된 패턴 정보 표시
+            displayDinov2PatternsInfo(data.learned_labels || {});
+            
+            // 워크플로우 진행 상태 업데이트
+            updateWorkflowProgress();
+            
+        } else {
+            updateDinov2Status('❌ DINOv2 패턴 학습 실패: ' + (data.error || '알 수 없는 오류'), 'error');
+        }
+    } catch (error) {
+        updateDinov2Status('❌ 패턴 학습 오류: ' + error.message, 'error');
+        console.error('DINOv2 learning error:', error);
+    } finally {
+        if (learnDinov2PatternsBtn) {
+            learnDinov2PatternsBtn.disabled = false;
+        }
+        updateButtonStates();
+    }
+}
+
+async function getDinov2PatternsInfo() {
+    // 학습된 DINOv2 패턴 정보 조회
+    try {
+        const response = await fetch('http://localhost:5000/api/get_patterns_info');
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            if ((data.total_labels || 0) === 0) {
+                updateDinov2Status('📊 아직 학습된 패턴이 없습니다.\n먼저 "DINOv2 패턴 학습"을 실행해주세요.', 'info');
+                if (dinov2PatternsInfo) {
+                    dinov2PatternsInfo.innerHTML = '';
+                }
+            } else {
+                updateDinov2Status(
+                    `📊 학습된 패턴 정보:\n` +
+                    `- 총 라벨: ${data.total_labels || 0}개\n` +
+                    `- 총 샘플: ${data.total_samples || 0}개\n` +
+                    `- 모드: 커스텀 객체 전용`,
+                    'success'
+                );
+                
+                displayDinov2PatternsInfo(data.learned_labels || {});
+            }
+        } else {
+            updateDinov2Status('❌ 패턴 정보 조회 실패: ' + (data.error || '알 수 없는 오류'), 'error');
+        }
+    } catch (error) {
+        updateDinov2Status('❌ 서버 연결 오류: ' + error.message, 'error');
+        console.error('DINOv2 info error:', error);
+    }
+}
+
+function displayDinov2PatternsInfo(learnedLabels) {
+    // 학습된 DINOv2 패턴 정보를 시각적으로 표시
+    if (!dinov2PatternsInfo) return;
+    
+    if (!learnedLabels || Object.keys(learnedLabels).length === 0) {
+        dinov2PatternsInfo.innerHTML = '<div class="no-patterns">학습된 패턴이 없습니다.</div>';
+        return;
+    }
+    
+    const labelEntries = Object.entries(learnedLabels).sort(([,a], [,b]) => (b.sample_count || 0) - (a.sample_count || 0));
+    
+    const patternsHTML = labelEntries.map(([label, info]) => {
+        return `
+            <div class="pattern-item">
+                <div class="pattern-label">${label}</div>
+                <div class="pattern-details">
+                    <span class="pattern-samples">${info.sample_count || 0}개 샘플</span>
+                    <span class="pattern-mode">커스텀 전용</span>
+                </div>
+            </div>
+        `;
+    }).join('');
+    
+    dinov2PatternsInfo.innerHTML = `
+        <div class="patterns-container">
+            <h5>🎯 학습된 커스텀 객체 패턴</h5>
+            ${patternsHTML}
+        </div>
+    `;
+}
+
+function updateDinov2Status(message, type) {
+    if (dinov2Status) {
+        dinov2Status.textContent = message;
+        dinov2Status.className = `status-display status-${type}`;
+    }
+}
+
+
 
 // =================
 // 3단계: AI 자동 라벨링 비디오 생성
@@ -1015,6 +1167,15 @@ async function checkServerStatus() {
         
         let statusText = '🤖 AI 모델 준비 완료';
         
+        // 현재 모델 타입 표시
+        const modelTypeNames = {
+            'yolo_dinov2': 'YOLO + DINOv2',
+            'yolo_clip': 'YOLO + CLIP (불량검사)'
+        };
+        
+        const currentModelName = modelTypeNames[currentModelType] || currentModelType;
+        currentModelSpan.textContent = `현재 모델: ${currentModelName}`;
+        
         if (data.is_custom_model) {
             statusText += '\n🚀 커스텀 모델 활성화됨';
             isCustomModelTrained = true;
@@ -1025,11 +1186,18 @@ async function checkServerStatus() {
             statusText += `\n📊 누적 학습 데이터: ${data.accumulated_training_data}개`;
         }
         
+        // DINOv2 패턴 학습 상태 확인
+        if (data.learned_patterns_count > 0) {
+            statusText += `\n🎯 학습된 패턴: ${data.learned_patterns_count}개`;
+            workflowState.step2_training = true;
+        }
+        
         updateSystemStatus(statusText, 'success');
         updateWorkflowProgress();
         
     } catch (error) {
         updateSystemStatus('❌ 서버에 연결할 수 없습니다. Python 백엔드를 시작해주세요.', 'error');
+        currentModelSpan.textContent = `현재 모델: ${currentModelType} (연결 안됨)`;
     }
 }
 
@@ -1249,7 +1417,7 @@ async function updateClipSettings() {
 function getModelDisplayName(modelType) {
     const modelNames = {
         'yolo_dinov2': 'YOLO + DINOv2',
-        'yolo_clip': 'YOLO + CLIP'
+        'yolo_clip': 'YOLO + CLIP (불량검사)'
     };
     return modelNames[modelType] || modelType;
 }

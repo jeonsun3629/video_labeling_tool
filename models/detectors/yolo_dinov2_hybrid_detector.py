@@ -99,19 +99,50 @@ class YOLODINOv2HybridDetector(BaseDetector):
                             'method': 'yolo_dinov2_hybrid'
                         })
                         
-                        # 세밀한 분류가 이루어진 경우만 결과에 포함
-                        if enhanced_class != detection['class_name']:
-                            enhanced_detection['label'] = enhanced_class
-                            enhanced_detection['class_name'] = enhanced_class
-                            print(f"🧠 DINOv2 enhanced: {detection['class_name']} → {enhanced_class}")
-                            enhanced_detections.append(enhanced_detection)
+                        # Universal 분류기로 학습된 커스텀 객체인지 확인
+                        if self.universal_classifier and self.universal_classifier.has_learned_patterns():
+                            # DINOv2 특징을 사용하여 학습된 커스텀 객체인지 판별
+                            custom_label = self.universal_classifier.classify_as_custom_object(features)
+                            
+                            if custom_label:
+                                # 학습된 커스텀 객체로 인식된 경우
+                                enhanced_detection['label'] = custom_label
+                                enhanced_detection['class_name'] = custom_label
+                                enhanced_detection['is_custom_object'] = True
+                                enhanced_detection['original_yolo_class'] = detection['class_name']
+                                print(f"🎯 Custom object detected: {custom_label} (original: {detection['class_name']}, conf: {detection['confidence']:.3f})")
+                                enhanced_detections.append(enhanced_detection)
+                            else:
+                                # 학습된 객체가 아니면 필터링
+                                print(f"❌ Not a learned custom object: {detection['class_name']} (filtered out)")
                         else:
-                            # 기존 YOLO 클래스와 동일하면 필터링
-                            print(f"✅ Basic {detection['class_name']} filtered out (no enhancement)")
+                            # 패턴 학습이 안 된 경우 기본 동작 (개선된 분류만 포함)
+                            if enhanced_class != detection['class_name']:
+                                enhanced_detection['label'] = enhanced_class
+                                enhanced_detection['class_name'] = enhanced_class
+                                print(f"🧠 DINOv2 enhanced: {detection['class_name']} → {enhanced_class}")
+                                enhanced_detections.append(enhanced_detection)
+                            else:
+                                print(f"✅ Basic {detection['class_name']} filtered out (no enhancement)")
                         
                     else:
-                        # 특징 추출 실패 시 기존 클래스는 필터링
-                        print(f"⚠️ Feature extraction failed for {detection['class_name']}, filtered out")
+                        # 특징 추출 실패 시 학습된 패턴이 있으면 무조건 필터링
+                        if self.universal_classifier and self.universal_classifier.has_learned_patterns():
+                            print(f"❌ Feature extraction failed for {detection['class_name']}, cannot verify if custom object - filtered out")
+                        else:
+                            # 패턴 학습이 안 된 경우에만 폴백 허용
+                            if hasattr(self.yolo_detector, 'is_custom_model') and self.yolo_detector.is_custom_model:
+                                fallback_detection = detection.copy()
+                                fallback_detection.update({
+                                    'label': detection['class_name'],
+                                    'has_features': False,
+                                    'enhanced_by_dinov2': False,
+                                    'method': 'yolo_custom_fallback'
+                                })
+                                print(f"🎯 Custom model fallback: {detection['class_name']} (conf: {detection['confidence']:.3f})")
+                                enhanced_detections.append(fallback_detection)
+                            else:
+                                print(f"⚠️ Feature extraction failed for {detection['class_name']}, filtered out")
                     
                 except Exception as e:
                     print(f"⚠️ Error analyzing detection {i}: {e}")
