@@ -29,8 +29,13 @@ class YOLODetector(BaseDetector):
             self.model = YOLO(self.model_path)
             print(f"✅ YOLOv11 model loaded successfully!")
             print(f"   Available classes: {len(self.model.names)} classes")
+            print(f"   Class names: {list(self.model.names.values())}")
             print(f"   Device: {self.device}")
             print(f"   Model type: {type(self.model.model).__name__}")
+            if self.is_custom_model:
+                print(f"   🎯 This is a CUSTOM trained model!")
+            else:
+                print(f"   📦 This is a PRE-TRAINED model")
             return True
         except Exception as e:
             print(f"❌ Failed to load YOLO model: {e}")
@@ -44,6 +49,10 @@ class YOLODetector(BaseDetector):
             return []
         
         try:
+            # 이미지 정보 출력
+            print(f"🖼️ Frame info: shape={frame.shape}, dtype={frame.dtype}")
+            print(f"🎯 Using confidence threshold: {self.confidence_threshold}")
+            
             # YOLO 추론 실행
             results = self.model(frame, conf=self.confidence_threshold)
             detections = []
@@ -54,14 +63,22 @@ class YOLODetector(BaseDetector):
                 boxes = result.boxes
                 if boxes is not None:
                     print(f"Found {len(boxes)} boxes in this result")
+                    
+                    # 모든 탐지된 박스 정보 출력 (필터링 전)
+                    all_boxes_count = len(boxes)
+                    filtered_count = 0
+                    low_conf_count = 0
+                    
                     for box in boxes:
                         x1, y1, x2, y2 = box.xyxy[0].cpu().numpy()
                         conf = box.conf[0].cpu().numpy()
                         cls = box.cls[0].cpu().numpy()
+                        class_name = self.model.names[int(cls)]
+                        
+                        print(f"📦 Raw detection: {class_name} conf={conf:.3f} bbox=[{x1:.1f},{y1:.1f},{x2:.1f},{y2:.1f}]")
                         
                         # 신뢰도 필터링
                         if conf > self.confidence_threshold:
-                            class_name = self.model.names[int(cls)]
                             detection = {
                                 'bbox': [int(x1), int(y1), int(x2-x1), int(y2-y1)],  # x, y, w, h
                                 'confidence': float(conf),
@@ -69,11 +86,17 @@ class YOLODetector(BaseDetector):
                                 'class_name': class_name
                             }
                             detections.append(detection)
-                            print(f"Detected: {class_name} with confidence {conf:.3f}")
+                            filtered_count += 1
+                            print(f"✅ Accepted: {class_name} with confidence {conf:.3f}")
+                        else:
+                            low_conf_count += 1
+                            print(f"❌ Rejected: {class_name} with confidence {conf:.3f} (below {self.confidence_threshold})")
+                    
+                    print(f"📊 Detection Summary: {all_boxes_count} total, {filtered_count} accepted, {low_conf_count} rejected")
                 else:
-                    print("No boxes found in this result")
+                    print("❌ No boxes found in this result")
             
-            print(f"Total detections after filtering: {len(detections)}")
+            print(f"🎯 Final result: {len(detections)} detections after filtering")
             return detections
             
         except Exception as e:

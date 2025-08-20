@@ -1,0 +1,4110 @@
+[
+  {
+    "frame": "0.000",
+    "label": "patient",
+    "bbox": [
+      282,
+      412,
+      223,
+      117
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "3.618",
+    "label": "patient",
+    "bbox": [
+      258,
+      401,
+      162,
+      157
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "8.442",
+    "label": "patient",
+    "bbox": [
+      521,
+      436,
+      124,
+      106
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "25.447",
+    "label": "patient",
+    "bbox": [
+      556,
+      383,
+      115,
+      73
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "35.034",
+    "label": "patient",
+    "bbox": [
+      530,
+      374,
+      122,
+      82
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "43.537",
+    "label": "patient",
+    "bbox": [
+      543,
+      361,
+      153,
+      91
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "51.858",
+    "label": "patient",
+    "bbox": [
+      581,
+      357,
+      97,
+      91
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "5.548",
+    "label": "patient",
+    "bbox": [
+      532,
+      352,
+      166,
+      109
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "51.737",
+    "label": "patient",
+    "bbox": [
+      561,
+      361,
+      119,
+      100
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "bbox": [
+      243,
+      400,
+      267,
+      146
+    ],
+    "confidence": 0.053583305329084396,
+    "enhanced_by_classifier": true,
+    "frame": "0.233",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      237,
+      400,
+      282,
+      151
+    ],
+    "confidence": 0.05074436217546463,
+    "enhanced_by_classifier": true,
+    "frame": "0.467",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      237,
+      401,
+      282,
+      151
+    ],
+    "confidence": 0.0524829626083374,
+    "enhanced_by_classifier": true,
+    "frame": "0.700",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      236,
+      396,
+      288,
+      155
+    ],
+    "confidence": 0.07695768773555756,
+    "enhanced_by_classifier": true,
+    "frame": "0.933",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      250,
+      402,
+      273,
+      147
+    ],
+    "confidence": 0.051802974194288254,
+    "enhanced_by_classifier": true,
+    "frame": "1.167",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      247,
+      400,
+      276,
+      150
+    ],
+    "confidence": 0.05071283504366875,
+    "enhanced_by_classifier": true,
+    "frame": "1.633",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      261,
+      398,
+      263,
+      150
+    ],
+    "confidence": 0.08067138493061066,
+    "enhanced_by_classifier": true,
+    "frame": "1.867",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      262,
+      398,
+      262,
+      148
+    ],
+    "confidence": 0.07805052399635315,
+    "enhanced_by_classifier": true,
+    "frame": "2.100",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      251,
+      406,
+      253,
+      175
+    ],
+    "confidence": 0.08323856443166733,
+    "enhanced_by_classifier": true,
+    "frame": "2.800",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      250,
+      407,
+      253,
+      173
+    ],
+    "confidence": 0.08149244636297226,
+    "enhanced_by_classifier": true,
+    "frame": "3.033",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      233,
+      393,
+      228,
+      152
+    ],
+    "confidence": 0.08045244961977005,
+    "enhanced_by_classifier": true,
+    "frame": "3.267",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      233,
+      398,
+      213,
+      148
+    ],
+    "confidence": 0.0603683777153492,
+    "enhanced_by_classifier": true,
+    "frame": "3.967",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      262,
+      393,
+      258,
+      151
+    ],
+    "confidence": 0.05722169578075409,
+    "enhanced_by_classifier": true,
+    "frame": "4.200",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      262,
+      393,
+      260,
+      151
+    ],
+    "confidence": 0.05656097084283829,
+    "enhanced_by_classifier": true,
+    "frame": "4.433",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      546,
+      382,
+      138,
+      112
+    ],
+    "confidence": 0.06107055023312569,
+    "enhanced_by_classifier": true,
+    "frame": "26.367",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      545,
+      386,
+      158,
+      105
+    ],
+    "confidence": 0.06999687105417252,
+    "enhanced_by_classifier": true,
+    "frame": "27.300",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      546,
+      387,
+      163,
+      101
+    ],
+    "confidence": 0.05116186663508415,
+    "enhanced_by_classifier": true,
+    "frame": "27.533",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      546,
+      387,
+      163,
+      101
+    ],
+    "confidence": 0.06063934415578842,
+    "enhanced_by_classifier": true,
+    "frame": "27.767",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      491,
+      383,
+      166,
+      108
+    ],
+    "confidence": 0.051381681114435196,
+    "enhanced_by_classifier": true,
+    "frame": "28.233",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      487,
+      385,
+      142,
+      110
+    ],
+    "confidence": 0.09265860915184021,
+    "enhanced_by_classifier": true,
+    "frame": "28.700",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      505,
+      378,
+      136,
+      113
+    ],
+    "confidence": 0.06092267483472824,
+    "enhanced_by_classifier": true,
+    "frame": "29.400",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      588,
+      355,
+      133,
+      103
+    ],
+    "confidence": 0.051261864602565765,
+    "enhanced_by_classifier": true,
+    "frame": "42.700",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      587,
+      353,
+      133,
+      108
+    ],
+    "confidence": 0.07110907882452011,
+    "enhanced_by_classifier": true,
+    "frame": "42.933",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      588,
+      353,
+      133,
+      108
+    ],
+    "confidence": 0.07704520225524902,
+    "enhanced_by_classifier": true,
+    "frame": "43.167",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "frame": "5.367",
+    "label": "FR",
+    "bbox": [
+      364,
+      166,
+      146,
+      248
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "7.779",
+    "label": "FR",
+    "bbox": [
+      370,
+      222,
+      188,
+      385
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "9.708",
+    "label": "FR",
+    "bbox": [
+      713,
+      173,
+      261,
+      443
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "23.155",
+    "label": "FR",
+    "bbox": [
+      512,
+      168,
+      139,
+      412
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "27.678",
+    "label": "FR",
+    "bbox": [
+      492,
+      295,
+      111,
+      210
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "31.537",
+    "label": "FR",
+    "bbox": [
+      450,
+      264,
+      119,
+      233
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "43.235",
+    "label": "FR",
+    "bbox": [
+      474,
+      233,
+      126,
+      219
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "49.808",
+    "label": "FR",
+    "bbox": [
+      379,
+      239,
+      119,
+      253
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "frame": "59.094",
+    "label": "FR",
+    "bbox": [
+      368,
+      202,
+      142,
+      374
+    ],
+    "video_resolution": {
+      "width": 1280,
+      "height": 720
+    },
+    "display_resolution": {
+      "width": 577,
+      "height": 325
+    },
+    "source": "manual"
+  },
+  {
+    "bbox": [
+      325,
+      403,
+      192,
+      125
+    ],
+    "confidence": 0.06608973443508148,
+    "enhanced_by_classifier": true,
+    "frame": "0.233",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      402,
+      402,
+      107,
+      120
+    ],
+    "confidence": 0.05472659319639206,
+    "enhanced_by_classifier": true,
+    "frame": "0.233",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      332,
+      398,
+      176,
+      143
+    ],
+    "confidence": 0.05950120836496353,
+    "enhanced_by_classifier": true,
+    "frame": "0.933",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      255,
+      381,
+      160,
+      147
+    ],
+    "confidence": 0.054186008870601654,
+    "enhanced_by_classifier": true,
+    "frame": "3.500",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      255,
+      380,
+      157,
+      147
+    ],
+    "confidence": 0.058088842779397964,
+    "enhanced_by_classifier": true,
+    "frame": "3.733",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      380,
+      392,
+      136,
+      116
+    ],
+    "confidence": 0.08413512259721756,
+    "enhanced_by_classifier": true,
+    "frame": "4.200",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      331,
+      393,
+      196,
+      135
+    ],
+    "confidence": 0.07961796224117279,
+    "enhanced_by_classifier": true,
+    "frame": "4.200",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      380,
+      392,
+      136,
+      117
+    ],
+    "confidence": 0.08238730579614639,
+    "enhanced_by_classifier": true,
+    "frame": "4.433",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      330,
+      393,
+      197,
+      136
+    ],
+    "confidence": 0.07882893085479736,
+    "enhanced_by_classifier": true,
+    "frame": "4.433",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      287,
+      187,
+      140,
+      238
+    ],
+    "confidence": 0.07909929752349854,
+    "enhanced_by_classifier": true,
+    "frame": "4.900",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      286,
+      188,
+      141,
+      237
+    ],
+    "confidence": 0.0767127275466919,
+    "enhanced_by_classifier": true,
+    "frame": "5.133",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      345,
+      165,
+      146,
+      253
+    ],
+    "confidence": 0.05496209114789963,
+    "enhanced_by_classifier": true,
+    "frame": "5.367",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      345,
+      165,
+      146,
+      253
+    ],
+    "confidence": 0.055194199085235596,
+    "enhanced_by_classifier": true,
+    "frame": "5.600",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      346,
+      165,
+      146,
+      253
+    ],
+    "confidence": 0.056558236479759216,
+    "enhanced_by_classifier": true,
+    "frame": "5.833",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      345,
+      165,
+      147,
+      253
+    ],
+    "confidence": 0.05451072379946709,
+    "enhanced_by_classifier": true,
+    "frame": "6.067",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      345,
+      165,
+      146,
+      252
+    ],
+    "confidence": 0.05449480190873146,
+    "enhanced_by_classifier": true,
+    "frame": "6.300",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      346,
+      165,
+      146,
+      252
+    ],
+    "confidence": 0.05338510870933533,
+    "enhanced_by_classifier": true,
+    "frame": "6.533",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      345,
+      165,
+      146,
+      252
+    ],
+    "confidence": 0.053163133561611176,
+    "enhanced_by_classifier": true,
+    "frame": "6.767",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      346,
+      165,
+      146,
+      253
+    ],
+    "confidence": 0.05842277780175209,
+    "enhanced_by_classifier": true,
+    "frame": "7.000",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      408,
+      228,
+      176,
+      370
+    ],
+    "confidence": 0.15296794474124908,
+    "enhanced_by_classifier": true,
+    "frame": "7.233",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      365,
+      225,
+      181,
+      393
+    ],
+    "confidence": 0.29582932591438293,
+    "enhanced_by_classifier": true,
+    "frame": "7.467",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      342,
+      202,
+      210,
+      403
+    ],
+    "confidence": 0.1277548223733902,
+    "enhanced_by_classifier": true,
+    "frame": "7.700",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      342,
+      202,
+      210,
+      403
+    ],
+    "confidence": 0.124367356300354,
+    "enhanced_by_classifier": true,
+    "frame": "7.933",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      342,
+      202,
+      210,
+      403
+    ],
+    "confidence": 0.12474995106458664,
+    "enhanced_by_classifier": true,
+    "frame": "8.167",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      342,
+      202,
+      210,
+      403
+    ],
+    "confidence": 0.12535503506660461,
+    "enhanced_by_classifier": true,
+    "frame": "8.400",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      622,
+      165,
+      251,
+      446
+    ],
+    "confidence": 0.20665599405765533,
+    "enhanced_by_classifier": true,
+    "frame": "8.633",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      621,
+      165,
+      251,
+      446
+    ],
+    "confidence": 0.20891372859477997,
+    "enhanced_by_classifier": true,
+    "frame": "8.867",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      701,
+      166,
+      295,
+      451
+    ],
+    "confidence": 0.12836238741874695,
+    "enhanced_by_classifier": true,
+    "frame": "9.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      701,
+      166,
+      295,
+      451
+    ],
+    "confidence": 0.12791426479816437,
+    "enhanced_by_classifier": true,
+    "frame": "9.333",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      701,
+      166,
+      295,
+      451
+    ],
+    "confidence": 0.12810049951076508,
+    "enhanced_by_classifier": true,
+    "frame": "9.567",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      701,
+      166,
+      295,
+      451
+    ],
+    "confidence": 0.12570112943649292,
+    "enhanced_by_classifier": true,
+    "frame": "9.800",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      686,
+      160,
+      367,
+      478
+    ],
+    "confidence": 0.08770821988582611,
+    "enhanced_by_classifier": true,
+    "frame": "10.033",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      686,
+      160,
+      368,
+      480
+    ],
+    "confidence": 0.08145347982645035,
+    "enhanced_by_classifier": true,
+    "frame": "10.267",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      685,
+      160,
+      368,
+      478
+    ],
+    "confidence": 0.07979167252779007,
+    "enhanced_by_classifier": true,
+    "frame": "10.500",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      533,
+      217,
+      415,
+      413
+    ],
+    "confidence": 0.06094353273510933,
+    "enhanced_by_classifier": true,
+    "frame": "12.600",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      532,
+      217,
+      416,
+      413
+    ],
+    "confidence": 0.06099754571914673,
+    "enhanced_by_classifier": true,
+    "frame": "12.833",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      643,
+      196,
+      417,
+      433
+    ],
+    "confidence": 0.06281282752752304,
+    "enhanced_by_classifier": true,
+    "frame": "13.067",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      643,
+      196,
+      417,
+      433
+    ],
+    "confidence": 0.06373284757137299,
+    "enhanced_by_classifier": true,
+    "frame": "13.300",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      645,
+      196,
+      417,
+      433
+    ],
+    "confidence": 0.06431102752685547,
+    "enhanced_by_classifier": true,
+    "frame": "13.533",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      645,
+      196,
+      417,
+      433
+    ],
+    "confidence": 0.06327039003372192,
+    "enhanced_by_classifier": true,
+    "frame": "13.767",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      652,
+      212,
+      405,
+      415
+    ],
+    "confidence": 0.07126496732234955,
+    "enhanced_by_classifier": true,
+    "frame": "14.000",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      658,
+      170,
+      400,
+      470
+    ],
+    "confidence": 0.07585608959197998,
+    "enhanced_by_classifier": true,
+    "frame": "14.233",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      658,
+      168,
+      400,
+      471
+    ],
+    "confidence": 0.0766366496682167,
+    "enhanced_by_classifier": true,
+    "frame": "14.467",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      585,
+      201,
+      385,
+      431
+    ],
+    "confidence": 0.06012476980686188,
+    "enhanced_by_classifier": true,
+    "frame": "14.933",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      585,
+      202,
+      383,
+      428
+    ],
+    "confidence": 0.06036556139588356,
+    "enhanced_by_classifier": true,
+    "frame": "15.167",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      560,
+      215,
+      366,
+      407
+    ],
+    "confidence": 0.078663170337677,
+    "enhanced_by_classifier": true,
+    "frame": "15.400",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      562,
+      185,
+      243,
+      438
+    ],
+    "confidence": 0.11139082908630371,
+    "enhanced_by_classifier": true,
+    "frame": "15.633",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      427,
+      162,
+      258,
+      460
+    ],
+    "confidence": 0.1316804736852646,
+    "enhanced_by_classifier": true,
+    "frame": "15.867",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      427,
+      162,
+      258,
+      460
+    ],
+    "confidence": 0.13071486353874207,
+    "enhanced_by_classifier": true,
+    "frame": "16.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      352,
+      162,
+      266,
+      466
+    ],
+    "confidence": 0.23390847444534302,
+    "enhanced_by_classifier": true,
+    "frame": "16.333",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      332,
+      162,
+      280,
+      467
+    ],
+    "confidence": 0.17485111951828003,
+    "enhanced_by_classifier": true,
+    "frame": "16.567",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      332,
+      162,
+      280,
+      467
+    ],
+    "confidence": 0.17607644200325012,
+    "enhanced_by_classifier": true,
+    "frame": "16.800",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      417,
+      162,
+      261,
+      465
+    ],
+    "confidence": 0.13616077601909637,
+    "enhanced_by_classifier": true,
+    "frame": "17.033",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      538,
+      161,
+      225,
+      391
+    ],
+    "confidence": 0.07037879526615143,
+    "enhanced_by_classifier": true,
+    "frame": "17.267",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      540,
+      161,
+      225,
+      391
+    ],
+    "confidence": 0.07363075017929077,
+    "enhanced_by_classifier": true,
+    "frame": "17.500",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      660,
+      177,
+      230,
+      412
+    ],
+    "confidence": 0.08044347167015076,
+    "enhanced_by_classifier": true,
+    "frame": "17.733",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      650,
+      167,
+      228,
+      448
+    ],
+    "confidence": 0.07907312363386154,
+    "enhanced_by_classifier": true,
+    "frame": "17.967",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      650,
+      167,
+      228,
+      446
+    ],
+    "confidence": 0.07884924113750458,
+    "enhanced_by_classifier": true,
+    "frame": "18.200",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      650,
+      166,
+      228,
+      448
+    ],
+    "confidence": 0.07787986844778061,
+    "enhanced_by_classifier": true,
+    "frame": "18.433",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      442,
+      183,
+      236,
+      437
+    ],
+    "confidence": 0.10588793456554413,
+    "enhanced_by_classifier": true,
+    "frame": "18.667",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      353,
+      163,
+      268,
+      478
+    ],
+    "confidence": 0.1822209358215332,
+    "enhanced_by_classifier": true,
+    "frame": "18.900",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      353,
+      163,
+      268,
+      480
+    ],
+    "confidence": 0.18198968470096588,
+    "enhanced_by_classifier": true,
+    "frame": "19.133",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      237,
+      158,
+      290,
+      507
+    ],
+    "confidence": 0.08172757178544998,
+    "enhanced_by_classifier": true,
+    "frame": "19.367",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      405,
+      165,
+      228,
+      462
+    ],
+    "confidence": 0.10625957697629929,
+    "enhanced_by_classifier": true,
+    "frame": "19.600",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      545,
+      166,
+      253,
+      460
+    ],
+    "confidence": 0.0740460604429245,
+    "enhanced_by_classifier": true,
+    "frame": "19.833",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      545,
+      165,
+      252,
+      461
+    ],
+    "confidence": 0.0773153081536293,
+    "enhanced_by_classifier": true,
+    "frame": "20.067",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      610,
+      167,
+      260,
+      451
+    ],
+    "confidence": 0.11644160747528076,
+    "enhanced_by_classifier": true,
+    "frame": "20.300",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      561,
+      165,
+      257,
+      458
+    ],
+    "confidence": 0.10670904815196991,
+    "enhanced_by_classifier": true,
+    "frame": "20.533",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      561,
+      165,
+      256,
+      458
+    ],
+    "confidence": 0.10575585067272186,
+    "enhanced_by_classifier": true,
+    "frame": "20.767",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      446,
+      166,
+      363,
+      471
+    ],
+    "confidence": 0.05821232125163078,
+    "enhanced_by_classifier": true,
+    "frame": "21.000",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      441,
+      173,
+      388,
+      475
+    ],
+    "confidence": 0.0881727933883667,
+    "enhanced_by_classifier": true,
+    "frame": "21.233",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      441,
+      173,
+      387,
+      473
+    ],
+    "confidence": 0.08658461272716522,
+    "enhanced_by_classifier": true,
+    "frame": "21.467",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      411,
+      158,
+      333,
+      490
+    ],
+    "confidence": 0.08462288230657578,
+    "enhanced_by_classifier": true,
+    "frame": "21.700",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      405,
+      171,
+      298,
+      457
+    ],
+    "confidence": 0.06660814583301544,
+    "enhanced_by_classifier": true,
+    "frame": "21.933",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      405,
+      170,
+      297,
+      458
+    ],
+    "confidence": 0.06622391939163208,
+    "enhanced_by_classifier": true,
+    "frame": "22.167",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      415,
+      161,
+      272,
+      460
+    ],
+    "confidence": 0.20356927812099457,
+    "enhanced_by_classifier": true,
+    "frame": "22.400",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      425,
+      171,
+      257,
+      445
+    ],
+    "confidence": 0.154105544090271,
+    "enhanced_by_classifier": true,
+    "frame": "22.633",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      425,
+      171,
+      257,
+      445
+    ],
+    "confidence": 0.15265291929244995,
+    "enhanced_by_classifier": true,
+    "frame": "22.867",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      478,
+      166,
+      197,
+      405
+    ],
+    "confidence": 0.2249150425195694,
+    "enhanced_by_classifier": true,
+    "frame": "23.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      513,
+      165,
+      166,
+      401
+    ],
+    "confidence": 0.2549639642238617,
+    "enhanced_by_classifier": true,
+    "frame": "23.333",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      600,
+      378,
+      116,
+      97
+    ],
+    "confidence": 0.0807332694530487,
+    "enhanced_by_classifier": true,
+    "frame": "23.333",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      513,
+      165,
+      165,
+      401
+    ],
+    "confidence": 0.2547062635421753,
+    "enhanced_by_classifier": true,
+    "frame": "23.567",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      600,
+      378,
+      118,
+      97
+    ],
+    "confidence": 0.09454897046089172,
+    "enhanced_by_classifier": true,
+    "frame": "23.567",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      495,
+      212,
+      146,
+      300
+    ],
+    "confidence": 0.05856530740857124,
+    "enhanced_by_classifier": true,
+    "frame": "23.800",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      446,
+      232,
+      147,
+      262
+    ],
+    "confidence": 0.05086848884820938,
+    "enhanced_by_classifier": true,
+    "frame": "24.033",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      518,
+      360,
+      121,
+      113
+    ],
+    "confidence": 0.08749694377183914,
+    "enhanced_by_classifier": true,
+    "frame": "24.733",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      556,
+      366,
+      107,
+      102
+    ],
+    "confidence": 0.0831359326839447,
+    "enhanced_by_classifier": true,
+    "frame": "24.967",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      572,
+      370,
+      92,
+      96
+    ],
+    "confidence": 0.07163722813129425,
+    "enhanced_by_classifier": true,
+    "frame": "25.200",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      573,
+      370,
+      92,
+      95
+    ],
+    "confidence": 0.08237987011671066,
+    "enhanced_by_classifier": true,
+    "frame": "25.433",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      580,
+      365,
+      113,
+      98
+    ],
+    "confidence": 0.05018644407391548,
+    "enhanced_by_classifier": true,
+    "frame": "26.133",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      547,
+      367,
+      133,
+      111
+    ],
+    "confidence": 0.11771531403064728,
+    "enhanced_by_classifier": true,
+    "frame": "26.367",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      355,
+      136,
+      118
+    ],
+    "confidence": 0.07023672759532928,
+    "enhanced_by_classifier": true,
+    "frame": "26.600",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      502,
+      355,
+      135,
+      118
+    ],
+    "confidence": 0.07052289694547653,
+    "enhanced_by_classifier": true,
+    "frame": "26.833",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      521,
+      370,
+      133,
+      107
+    ],
+    "confidence": 0.058990661054849625,
+    "enhanced_by_classifier": true,
+    "frame": "27.067",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      551,
+      368,
+      133,
+      116
+    ],
+    "confidence": 0.06483504176139832,
+    "enhanced_by_classifier": true,
+    "frame": "27.300",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      521,
+      372,
+      133,
+      107
+    ],
+    "confidence": 0.07837644219398499,
+    "enhanced_by_classifier": true,
+    "frame": "28.000",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      496,
+      367,
+      131,
+      121
+    ],
+    "confidence": 0.09659519791603088,
+    "enhanced_by_classifier": true,
+    "frame": "28.233",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      496,
+      367,
+      131,
+      121
+    ],
+    "confidence": 0.10086458921432495,
+    "enhanced_by_classifier": true,
+    "frame": "28.467",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      488,
+      382,
+      118,
+      106
+    ],
+    "confidence": 0.09281037747859955,
+    "enhanced_by_classifier": true,
+    "frame": "28.700",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      496,
+      366,
+      127,
+      117
+    ],
+    "confidence": 0.06197911128401756,
+    "enhanced_by_classifier": true,
+    "frame": "28.933",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      496,
+      366,
+      127,
+      117
+    ],
+    "confidence": 0.05783862620592117,
+    "enhanced_by_classifier": true,
+    "frame": "29.167",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      498,
+      365,
+      127,
+      108
+    ],
+    "confidence": 0.060292817652225494,
+    "enhanced_by_classifier": true,
+    "frame": "29.400",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      350,
+      120,
+      112
+    ],
+    "confidence": 0.09530472010374069,
+    "enhanced_by_classifier": true,
+    "frame": "29.633",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      422,
+      253,
+      133,
+      237
+    ],
+    "confidence": 0.06660854816436768,
+    "enhanced_by_classifier": true,
+    "frame": "29.633",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      438,
+      243,
+      120,
+      231
+    ],
+    "confidence": 0.06835930794477463,
+    "enhanced_by_classifier": true,
+    "frame": "29.867",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      351,
+      127,
+      106
+    ],
+    "confidence": 0.06441789120435715,
+    "enhanced_by_classifier": true,
+    "frame": "29.867",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      438,
+      243,
+      120,
+      231
+    ],
+    "confidence": 0.06805429607629776,
+    "enhanced_by_classifier": true,
+    "frame": "30.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      517,
+      351,
+      126,
+      108
+    ],
+    "confidence": 0.056151118129491806,
+    "enhanced_by_classifier": true,
+    "frame": "30.100",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      522,
+      347,
+      128,
+      106
+    ],
+    "confidence": 0.06507878750562668,
+    "enhanced_by_classifier": true,
+    "frame": "30.333",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      440,
+      245,
+      120,
+      228
+    ],
+    "confidence": 0.05953126773238182,
+    "enhanced_by_classifier": true,
+    "frame": "30.333",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      522,
+      348,
+      127,
+      105
+    ],
+    "confidence": 0.07642719149589539,
+    "enhanced_by_classifier": true,
+    "frame": "30.567",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      440,
+      243,
+      120,
+      228
+    ],
+    "confidence": 0.06135331466794014,
+    "enhanced_by_classifier": true,
+    "frame": "30.567",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      525,
+      350,
+      130,
+      115
+    ],
+    "confidence": 0.07970070838928223,
+    "enhanced_by_classifier": true,
+    "frame": "31.033",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      441,
+      255,
+      120,
+      230
+    ],
+    "confidence": 0.05578461289405823,
+    "enhanced_by_classifier": true,
+    "frame": "31.033",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      525,
+      356,
+      132,
+      116
+    ],
+    "confidence": 0.05671139433979988,
+    "enhanced_by_classifier": true,
+    "frame": "31.733",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      446,
+      257,
+      118,
+      241
+    ],
+    "confidence": 0.05520685762166977,
+    "enhanced_by_classifier": true,
+    "frame": "31.733",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      356,
+      117,
+      113
+    ],
+    "confidence": 0.09202403575181961,
+    "enhanced_by_classifier": true,
+    "frame": "31.967",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      423,
+      256,
+      132,
+      245
+    ],
+    "confidence": 0.06488601863384247,
+    "enhanced_by_classifier": true,
+    "frame": "31.967",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      357,
+      116,
+      113
+    ],
+    "confidence": 0.07836177200078964,
+    "enhanced_by_classifier": true,
+    "frame": "32.200",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      423,
+      256,
+      132,
+      245
+    ],
+    "confidence": 0.06451114267110825,
+    "enhanced_by_classifier": true,
+    "frame": "32.200",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      350,
+      120,
+      112
+    ],
+    "confidence": 0.11669442802667618,
+    "enhanced_by_classifier": true,
+    "frame": "32.433",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      418,
+      253,
+      135,
+      237
+    ],
+    "confidence": 0.05818427726626396,
+    "enhanced_by_classifier": true,
+    "frame": "32.433",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      521,
+      351,
+      126,
+      113
+    ],
+    "confidence": 0.09300663322210312,
+    "enhanced_by_classifier": true,
+    "frame": "32.667",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      427,
+      256,
+      128,
+      236
+    ],
+    "confidence": 0.0626305341720581,
+    "enhanced_by_classifier": true,
+    "frame": "32.667",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      351,
+      128,
+      115
+    ],
+    "confidence": 0.10216579586267471,
+    "enhanced_by_classifier": true,
+    "frame": "32.900",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      427,
+      256,
+      128,
+      236
+    ],
+    "confidence": 0.06268468499183655,
+    "enhanced_by_classifier": true,
+    "frame": "32.900",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      352,
+      127,
+      115
+    ],
+    "confidence": 0.1499125063419342,
+    "enhanced_by_classifier": true,
+    "frame": "33.133",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      426,
+      256,
+      130,
+      241
+    ],
+    "confidence": 0.06468042731285095,
+    "enhanced_by_classifier": true,
+    "frame": "33.133",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      521,
+      352,
+      132,
+      118
+    ],
+    "confidence": 0.1101931557059288,
+    "enhanced_by_classifier": true,
+    "frame": "33.367",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      428,
+      258,
+      127,
+      242
+    ],
+    "confidence": 0.061763063073158264,
+    "enhanced_by_classifier": true,
+    "frame": "33.367",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      358,
+      126,
+      112
+    ],
+    "confidence": 0.07997764647006989,
+    "enhanced_by_classifier": true,
+    "frame": "33.600",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      425,
+      270,
+      131,
+      232
+    ],
+    "confidence": 0.05777648091316223,
+    "enhanced_by_classifier": true,
+    "frame": "33.600",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      358,
+      126,
+      113
+    ],
+    "confidence": 0.07970336824655533,
+    "enhanced_by_classifier": true,
+    "frame": "33.833",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      423,
+      270,
+      131,
+      232
+    ],
+    "confidence": 0.056899815797805786,
+    "enhanced_by_classifier": true,
+    "frame": "33.833",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      356,
+      128,
+      113
+    ],
+    "confidence": 0.1172783151268959,
+    "enhanced_by_classifier": true,
+    "frame": "34.067",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      425,
+      263,
+      132,
+      238
+    ],
+    "confidence": 0.053524840623140335,
+    "enhanced_by_classifier": true,
+    "frame": "34.067",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      357,
+      130,
+      115
+    ],
+    "confidence": 0.11991682648658752,
+    "enhanced_by_classifier": true,
+    "frame": "34.300",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      425,
+      256,
+      131,
+      245
+    ],
+    "confidence": 0.05733707919716835,
+    "enhanced_by_classifier": true,
+    "frame": "34.300",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      357,
+      130,
+      113
+    ],
+    "confidence": 0.11499889194965363,
+    "enhanced_by_classifier": true,
+    "frame": "34.533",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      425,
+      257,
+      131,
+      243
+    ],
+    "confidence": 0.05682307481765747,
+    "enhanced_by_classifier": true,
+    "frame": "34.533",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      352,
+      122,
+      116
+    ],
+    "confidence": 0.16750891506671906,
+    "enhanced_by_classifier": true,
+    "frame": "34.767",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      428,
+      255,
+      128,
+      242
+    ],
+    "confidence": 0.05962713062763214,
+    "enhanced_by_classifier": true,
+    "frame": "34.767",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      517,
+      352,
+      128,
+      112
+    ],
+    "confidence": 0.14058275520801544,
+    "enhanced_by_classifier": true,
+    "frame": "35.000",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      435,
+      252,
+      123,
+      232
+    ],
+    "confidence": 0.05528397485613823,
+    "enhanced_by_classifier": true,
+    "frame": "35.000",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      517,
+      352,
+      128,
+      111
+    ],
+    "confidence": 0.14575223624706268,
+    "enhanced_by_classifier": true,
+    "frame": "35.233",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      435,
+      252,
+      123,
+      232
+    ],
+    "confidence": 0.05605362355709076,
+    "enhanced_by_classifier": true,
+    "frame": "35.233",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      521,
+      347,
+      133,
+      108
+    ],
+    "confidence": 0.0806058794260025,
+    "enhanced_by_classifier": true,
+    "frame": "35.467",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      438,
+      243,
+      120,
+      230
+    ],
+    "confidence": 0.05986001342535019,
+    "enhanced_by_classifier": true,
+    "frame": "35.467",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      521,
+      347,
+      133,
+      110
+    ],
+    "confidence": 0.09363818913698196,
+    "enhanced_by_classifier": true,
+    "frame": "35.700",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      518,
+      351,
+      123,
+      113
+    ],
+    "confidence": 0.091203972697258,
+    "enhanced_by_classifier": true,
+    "frame": "35.933",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      422,
+      260,
+      133,
+      237
+    ],
+    "confidence": 0.06068011373281479,
+    "enhanced_by_classifier": true,
+    "frame": "35.933",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      518,
+      351,
+      123,
+      113
+    ],
+    "confidence": 0.09167749434709549,
+    "enhanced_by_classifier": true,
+    "frame": "36.167",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      422,
+      261,
+      132,
+      235
+    ],
+    "confidence": 0.0590166300535202,
+    "enhanced_by_classifier": true,
+    "frame": "36.167",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      347,
+      128,
+      116
+    ],
+    "confidence": 0.10812503844499588,
+    "enhanced_by_classifier": true,
+    "frame": "36.400",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      427,
+      256,
+      130,
+      236
+    ],
+    "confidence": 0.058255795389413834,
+    "enhanced_by_classifier": true,
+    "frame": "36.400",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      348,
+      127,
+      115
+    ],
+    "confidence": 0.08914841711521149,
+    "enhanced_by_classifier": true,
+    "frame": "36.633",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      421,
+      256,
+      133,
+      240
+    ],
+    "confidence": 0.05891931802034378,
+    "enhanced_by_classifier": true,
+    "frame": "36.633",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      348,
+      126,
+      113
+    ],
+    "confidence": 0.08534742891788483,
+    "enhanced_by_classifier": true,
+    "frame": "36.867",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      421,
+      256,
+      135,
+      240
+    ],
+    "confidence": 0.05923624709248543,
+    "enhanced_by_classifier": true,
+    "frame": "36.867",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      355,
+      122,
+      111
+    ],
+    "confidence": 0.08348345011472702,
+    "enhanced_by_classifier": true,
+    "frame": "37.100",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      425,
+      260,
+      132,
+      237
+    ],
+    "confidence": 0.05499923974275589,
+    "enhanced_by_classifier": true,
+    "frame": "37.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      353,
+      121,
+      116
+    ],
+    "confidence": 0.09902477264404297,
+    "enhanced_by_classifier": true,
+    "frame": "37.333",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      423,
+      268,
+      133,
+      232
+    ],
+    "confidence": 0.05365884676575661,
+    "enhanced_by_classifier": true,
+    "frame": "37.333",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      520,
+      355,
+      123,
+      116
+    ],
+    "confidence": 0.09895460307598114,
+    "enhanced_by_classifier": true,
+    "frame": "37.567",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      422,
+      270,
+      133,
+      231
+    ],
+    "confidence": 0.05428806692361832,
+    "enhanced_by_classifier": true,
+    "frame": "37.567",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      518,
+      353,
+      122,
+      115
+    ],
+    "confidence": 0.10049273073673248,
+    "enhanced_by_classifier": true,
+    "frame": "37.800",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      496,
+      357,
+      130,
+      117
+    ],
+    "confidence": 0.09854543954133987,
+    "enhanced_by_classifier": true,
+    "frame": "38.033",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      356,
+      128,
+      117
+    ],
+    "confidence": 0.0816999301314354,
+    "enhanced_by_classifier": true,
+    "frame": "38.267",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      357,
+      127,
+      116
+    ],
+    "confidence": 0.08307741582393646,
+    "enhanced_by_classifier": true,
+    "frame": "38.500",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      357,
+      126,
+      116
+    ],
+    "confidence": 0.08187701553106308,
+    "enhanced_by_classifier": true,
+    "frame": "38.733",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      491,
+      365,
+      132,
+      112
+    ],
+    "confidence": 0.06018860265612602,
+    "enhanced_by_classifier": true,
+    "frame": "38.967",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      491,
+      365,
+      132,
+      112
+    ],
+    "confidence": 0.06242171674966812,
+    "enhanced_by_classifier": true,
+    "frame": "39.200",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      495,
+      367,
+      128,
+      115
+    ],
+    "confidence": 0.055044710636138916,
+    "enhanced_by_classifier": true,
+    "frame": "39.433",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      505,
+      380,
+      117,
+      102
+    ],
+    "confidence": 0.10458096116781235,
+    "enhanced_by_classifier": true,
+    "frame": "39.667",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      505,
+      378,
+      117,
+      103
+    ],
+    "confidence": 0.09736298769712448,
+    "enhanced_by_classifier": true,
+    "frame": "39.900",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      492,
+      373,
+      117,
+      113
+    ],
+    "confidence": 0.05071663856506348,
+    "enhanced_by_classifier": true,
+    "frame": "40.600",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      412,
+      258,
+      143,
+      237
+    ],
+    "confidence": 0.05347730964422226,
+    "enhanced_by_classifier": true,
+    "frame": "40.833",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      412,
+      258,
+      143,
+      237
+    ],
+    "confidence": 0.0539749339222908,
+    "enhanced_by_classifier": true,
+    "frame": "41.067",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      535,
+      345,
+      126,
+      116
+    ],
+    "confidence": 0.06480243057012558,
+    "enhanced_by_classifier": true,
+    "frame": "41.300",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      506,
+      251,
+      91,
+      213
+    ],
+    "confidence": 0.05495689809322357,
+    "enhanced_by_classifier": true,
+    "frame": "41.300",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      535,
+      345,
+      123,
+      115
+    ],
+    "confidence": 0.059037480503320694,
+    "enhanced_by_classifier": true,
+    "frame": "41.533",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      506,
+      251,
+      91,
+      213
+    ],
+    "confidence": 0.055662740021944046,
+    "enhanced_by_classifier": true,
+    "frame": "41.533",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      476,
+      245,
+      142,
+      257
+    ],
+    "confidence": 0.11001183092594147,
+    "enhanced_by_classifier": true,
+    "frame": "41.767",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      567,
+      343,
+      125,
+      107
+    ],
+    "confidence": 0.05253356322646141,
+    "enhanced_by_classifier": true,
+    "frame": "42.000",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      476,
+      245,
+      142,
+      238
+    ],
+    "confidence": 0.05013268440961838,
+    "enhanced_by_classifier": true,
+    "frame": "42.000",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      478,
+      243,
+      116,
+      226
+    ],
+    "confidence": 0.054432328790426254,
+    "enhanced_by_classifier": true,
+    "frame": "43.400",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      550,
+      346,
+      121,
+      113
+    ],
+    "confidence": 0.08048282563686371,
+    "enhanced_by_classifier": true,
+    "frame": "43.633",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      572,
+      347,
+      128,
+      106
+    ],
+    "confidence": 0.0643756315112114,
+    "enhanced_by_classifier": true,
+    "frame": "43.867",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      245,
+      121,
+      223
+    ],
+    "confidence": 0.05329527333378792,
+    "enhanced_by_classifier": true,
+    "frame": "43.867",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      572,
+      347,
+      127,
+      106
+    ],
+    "confidence": 0.07042332738637924,
+    "enhanced_by_classifier": true,
+    "frame": "44.100",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      246,
+      121,
+      223
+    ],
+    "confidence": 0.05135694891214371,
+    "enhanced_by_classifier": true,
+    "frame": "44.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      413,
+      236,
+      141,
+      245
+    ],
+    "confidence": 0.06466802209615707,
+    "enhanced_by_classifier": true,
+    "frame": "47.600",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      413,
+      236,
+      141,
+      245
+    ],
+    "confidence": 0.06472720205783844,
+    "enhanced_by_classifier": true,
+    "frame": "47.833",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      337,
+      122,
+      112
+    ],
+    "confidence": 0.06088755652308464,
+    "enhanced_by_classifier": true,
+    "frame": "48.067",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      413,
+      236,
+      140,
+      243
+    ],
+    "confidence": 0.055066268891096115,
+    "enhanced_by_classifier": true,
+    "frame": "48.067",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      413,
+      236,
+      141,
+      250
+    ],
+    "confidence": 0.070558562874794,
+    "enhanced_by_classifier": true,
+    "frame": "48.300",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      341,
+      126,
+      117
+    ],
+    "confidence": 0.0640142560005188,
+    "enhanced_by_classifier": true,
+    "frame": "48.300",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      495,
+      345,
+      127,
+      115
+    ],
+    "confidence": 0.0955313965678215,
+    "enhanced_by_classifier": true,
+    "frame": "48.533",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      412,
+      243,
+      143,
+      250
+    ],
+    "confidence": 0.07011905312538147,
+    "enhanced_by_classifier": true,
+    "frame": "48.533",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      495,
+      345,
+      127,
+      115
+    ],
+    "confidence": 0.09847787022590637,
+    "enhanced_by_classifier": true,
+    "frame": "48.767",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      412,
+      242,
+      143,
+      251
+    ],
+    "confidence": 0.07090570777654648,
+    "enhanced_by_classifier": true,
+    "frame": "48.767",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      411,
+      231,
+      146,
+      262
+    ],
+    "confidence": 0.07252483069896698,
+    "enhanced_by_classifier": true,
+    "frame": "49.000",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      376,
+      241,
+      142,
+      252
+    ],
+    "confidence": 0.08159489184617996,
+    "enhanced_by_classifier": true,
+    "frame": "49.700",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      400,
+      231,
+      128,
+      276
+    ],
+    "confidence": 0.1047370582818985,
+    "enhanced_by_classifier": true,
+    "frame": "50.400",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      471,
+      347,
+      135,
+      127
+    ],
+    "confidence": 0.07235132157802582,
+    "enhanced_by_classifier": true,
+    "frame": "50.400",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      340,
+      120,
+      116
+    ],
+    "confidence": 0.06475351750850677,
+    "enhanced_by_classifier": true,
+    "frame": "50.633",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      497,
+      341,
+      120,
+      116
+    ],
+    "confidence": 0.06287039071321487,
+    "enhanced_by_classifier": true,
+    "frame": "50.867",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      468,
+      242,
+      126,
+      248
+    ],
+    "confidence": 0.09524223208427429,
+    "enhanced_by_classifier": true,
+    "frame": "51.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      567,
+      358,
+      121,
+      111
+    ],
+    "confidence": 0.06709346920251846,
+    "enhanced_by_classifier": true,
+    "frame": "51.333",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      492,
+      256,
+      121,
+      221
+    ],
+    "confidence": 0.05035625770688057,
+    "enhanced_by_classifier": true,
+    "frame": "51.333",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      566,
+      357,
+      121,
+      112
+    ],
+    "confidence": 0.0582389235496521,
+    "enhanced_by_classifier": true,
+    "frame": "51.567",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      492,
+      256,
+      120,
+      221
+    ],
+    "confidence": 0.050779953598976135,
+    "enhanced_by_classifier": true,
+    "frame": "51.567",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      562,
+      352,
+      121,
+      102
+    ],
+    "confidence": 0.1606062352657318,
+    "enhanced_by_classifier": true,
+    "frame": "51.800",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      545,
+      351,
+      103,
+      93
+    ],
+    "confidence": 0.07284978777170181,
+    "enhanced_by_classifier": true,
+    "frame": "52.033",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      545,
+      351,
+      103,
+      93
+    ],
+    "confidence": 0.07174132019281387,
+    "enhanced_by_classifier": true,
+    "frame": "52.267",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      522,
+      351,
+      111,
+      95
+    ],
+    "confidence": 0.1067265197634697,
+    "enhanced_by_classifier": true,
+    "frame": "52.500",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      421,
+      231,
+      172,
+      250
+    ],
+    "confidence": 0.08090324699878693,
+    "enhanced_by_classifier": true,
+    "frame": "52.500",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      533,
+      350,
+      115,
+      96
+    ],
+    "confidence": 0.1421641707420349,
+    "enhanced_by_classifier": true,
+    "frame": "52.733",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      438,
+      228,
+      156,
+      251
+    ],
+    "confidence": 0.054677657783031464,
+    "enhanced_by_classifier": true,
+    "frame": "52.733",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      536,
+      341,
+      121,
+      108
+    ],
+    "confidence": 0.1814679354429245,
+    "enhanced_by_classifier": true,
+    "frame": "52.967",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      536,
+      342,
+      121,
+      107
+    ],
+    "confidence": 0.19026914238929749,
+    "enhanced_by_classifier": true,
+    "frame": "53.200",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      540,
+      365,
+      115,
+      105
+    ],
+    "confidence": 0.19232715666294098,
+    "enhanced_by_classifier": true,
+    "frame": "53.433",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      452,
+      260,
+      140,
+      240
+    ],
+    "confidence": 0.06079470366239548,
+    "enhanced_by_classifier": true,
+    "frame": "53.433",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      522,
+      376,
+      118,
+      102
+    ],
+    "confidence": 0.149855375289917,
+    "enhanced_by_classifier": true,
+    "frame": "53.667",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      522,
+      373,
+      123,
+      103
+    ],
+    "confidence": 0.14741291105747223,
+    "enhanced_by_classifier": true,
+    "frame": "53.900",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      595,
+      361,
+      123,
+      112
+    ],
+    "confidence": 0.1649473011493683,
+    "enhanced_by_classifier": true,
+    "frame": "54.133",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      970,
+      321,
+      91,
+      213
+    ],
+    "confidence": 0.05543385073542595,
+    "enhanced_by_classifier": true,
+    "frame": "54.833",
+    "label": "person_under_car",
+    "original_class": "person_under_car",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      860,
+      165,
+      163,
+      333
+    ],
+    "confidence": 0.12040290236473083,
+    "enhanced_by_classifier": true,
+    "frame": "55.067",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      860,
+      165,
+      163,
+      333
+    ],
+    "confidence": 0.12024034559726715,
+    "enhanced_by_classifier": true,
+    "frame": "55.300",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      421,
+      192,
+      142,
+      252
+    ],
+    "confidence": 0.056704867631196976,
+    "enhanced_by_classifier": true,
+    "frame": "56.700",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      421,
+      192,
+      141,
+      252
+    ],
+    "confidence": 0.05590011924505234,
+    "enhanced_by_classifier": true,
+    "frame": "56.933",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      421,
+      192,
+      141,
+      252
+    ],
+    "confidence": 0.05529997497797012,
+    "enhanced_by_classifier": true,
+    "frame": "57.167",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      268,
+      163,
+      173,
+      398
+    ],
+    "confidence": 0.24654963612556458,
+    "enhanced_by_classifier": true,
+    "frame": "57.400",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      267,
+      167,
+      218,
+      397
+    ],
+    "confidence": 0.19238290190696716,
+    "enhanced_by_classifier": true,
+    "frame": "57.633",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      267,
+      167,
+      221,
+      397
+    ],
+    "confidence": 0.20071254670619965,
+    "enhanced_by_classifier": true,
+    "frame": "57.867",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      296,
+      190,
+      160,
+      383
+    ],
+    "confidence": 0.16970103979110718,
+    "enhanced_by_classifier": true,
+    "frame": "58.100",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      296,
+      190,
+      160,
+      383
+    ],
+    "confidence": 0.16868630051612854,
+    "enhanced_by_classifier": true,
+    "frame": "58.333",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      296,
+      190,
+      158,
+      383
+    ],
+    "confidence": 0.16827653348445892,
+    "enhanced_by_classifier": true,
+    "frame": "58.567",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      296,
+      190,
+      158,
+      382
+    ],
+    "confidence": 0.16547895967960358,
+    "enhanced_by_classifier": true,
+    "frame": "58.800",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      357,
+      195,
+      155,
+      375
+    ],
+    "confidence": 0.16031692922115326,
+    "enhanced_by_classifier": true,
+    "frame": "59.033",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      357,
+      195,
+      155,
+      375
+    ],
+    "confidence": 0.15974409878253937,
+    "enhanced_by_classifier": true,
+    "frame": "59.267",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      408,
+      193,
+      141,
+      356
+    ],
+    "confidence": 0.20440462231636047,
+    "enhanced_by_classifier": true,
+    "frame": "59.500",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      408,
+      185,
+      137,
+      370
+    ],
+    "confidence": 0.20749390125274658,
+    "enhanced_by_classifier": true,
+    "frame": "59.733",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      408,
+      185,
+      137,
+      370
+    ],
+    "confidence": 0.2078167349100113,
+    "enhanced_by_classifier": true,
+    "frame": "59.967",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  },
+  {
+    "bbox": [
+      408,
+      185,
+      137,
+      370
+    ],
+    "confidence": 0.20946572721004486,
+    "enhanced_by_classifier": true,
+    "frame": "60.200",
+    "label": "person_wearing_helmet",
+    "original_class": "person_wearing_helmet",
+    "source": "custom_model"
+  }
+]

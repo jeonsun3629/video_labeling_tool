@@ -303,8 +303,9 @@ def create_custom_model_video():
         if not detector or not detector.is_loaded():
             return jsonify({"error": "No detector loaded"}), 400
         
-        # 커스텀 모델로 전체 비디오 자동 라벨링
-        print(f"Creating annotated video with current model (dense_analysis: {dense_analysis})...")
+        # 현재 모델로 전체 비디오 자동 라벨링
+        model_type = model_manager.detector_type
+        print(f"Creating annotated video with {model_type} model (dense_analysis: {dense_analysis})...")
         annotations = detection_service.process_video(video_path, dense_analysis)
         
         if not annotations:
@@ -320,13 +321,22 @@ def create_custom_model_video():
         success = VisualizationUtils.create_annotated_video(video_path, annotations, output_path)
         
         if success:
+            # 모델 타입에 따른 메시지 생성
+            model_descriptions = {
+                'yolo_clip': 'CLIP 불량품 탐지',
+                'yolo_dinov2': '커스텀 DINOv2',
+                'yolo': '기본 YOLO'
+            }
+            model_desc = model_descriptions.get(model_type, model_type.upper())
+            
             return jsonify({
                 "status": "success",
-                "message": f"{model_type.upper()} model video created successfully",
+                "message": f"{model_desc} 모델 비디오가 성공적으로 생성되었습니다",
                 "output_path": output_path,
                 "download_url": f"/api/download/{output_filename}",
                 "annotations": annotations,
-                "total_detections": len(annotations)
+                "total_detections": len(annotations),
+                "model_type": model_type
             })
         else:
             return jsonify({"error": "Failed to create annotated video"}), 500

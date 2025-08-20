@@ -27,7 +27,7 @@ DEFAULT_CLASSIFIER = 'dinov2'
 
 # YOLOv11 설정 (업그레이드)
 YOLO_MODEL_PATH = 'yolo11n.pt'  # YOLOv11 nano 모델
-YOLO_CONFIDENCE_THRESHOLD = 0.15
+YOLO_CONFIDENCE_THRESHOLD = 0.05  # 더 많은 객체를 탐지하도록 낮춘 임계값
 
 # DINOv2 설정 (실제 DINOv2 모델 사용)
 DINOV2_MODEL_NAME = 'facebook/dinov2-base'  # DINOv2 ViT-Base 모델
@@ -35,7 +35,7 @@ DINOV2_SIMILARITY_THRESHOLD = 0.7
 
 # CLIP 설정 (미래 확장용)
 CLIP_MODEL_NAME = 'openai/clip-vit-base-patch32'
-CLIP_DEFECT_THRESHOLD = 0.8
+CLIP_DEFECT_THRESHOLD = 0.35  # 더 현실적인 임계값으로 조정
 
 # 메모리 관리 설정
 MEMORY_LIMIT_RATIO = 0.85

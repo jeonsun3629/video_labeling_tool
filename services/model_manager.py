@@ -60,8 +60,29 @@ class ModelManager:
     def switch_detector(self, detector_type: str, **kwargs) -> bool:
         """탐지기 변경"""
         try:
+            # YOLO+CLIP 모델의 경우 UI 설정 처리
+            if detector_type == 'yolo_clip' and 'defect_queries' in kwargs:
+                print(f"🔧 YOLO+CLIP config received:")
+                print(f"   Queries: {len(kwargs['defect_queries'])}")
+                print(f"   Threshold: {kwargs.get('defect_threshold', 'default')}")
+                
+                # 기존 커스텀 모델 경로 보존
+                if (self.current_detector and 
+                    hasattr(self.current_detector, 'yolo_detector') and 
+                    self.current_detector.yolo_detector and
+                    hasattr(self.current_detector.yolo_detector, 'is_custom_model') and
+                    self.current_detector.yolo_detector.is_custom_model):
+                    kwargs['model_path'] = self.current_detector.yolo_detector.model_path
+                    print(f"🎯 Preserving custom model: {kwargs['model_path']}")
+            
             new_detector = ModelFactory.create_detector(detector_type, **kwargs)
             if new_detector and new_detector.load_model():
+                # YOLO+CLIP의 경우 UI 설정 적용
+                if detector_type == 'yolo_clip' and hasattr(new_detector, 'update_from_ui_config'):
+                    defect_queries = kwargs.get('defect_queries', [])
+                    defect_threshold = kwargs.get('defect_threshold', 0.35)
+                    new_detector.update_from_ui_config(defect_queries, defect_threshold)
+                
                 self.current_detector = new_detector
                 self.detector_type = detector_type
                 print(f"✅ Detector: {detector_type}")
@@ -133,14 +154,35 @@ class ModelManager:
         """커스텀 탐지기 모델 로드"""
         try:
             if self.current_detector:
-                # 하이브리드 탐지기인 경우
+                print(f"🔄 Loading custom model: {model_path}")
+                print(f"🔍 Current detector type: {type(self.current_detector).__name__}")
+                
+                # 하이브리드 탐지기인 경우 - 새로 생성해서 커스텀 모델 경로 전달
                 if hasattr(self.current_detector, 'yolo_detector'):
-                    # YOLO + CLIP 또는 YOLO + DINOv2 하이브리드
-                    if self.current_detector.yolo_detector:
-                        self.current_detector.yolo_detector.model_path = model_path
-                        success = self.current_detector.yolo_detector.load_model()
-                        print(f"🔄 Custom model loaded in hybrid detector: {success}")
-                        return success
+                    print("🔧 Detected hybrid detector, recreating with custom model...")
+                    
+                    # 기존 설정 보존
+                    existing_kwargs = {}
+                    if hasattr(self.current_detector, 'custom_queries'):
+                        existing_kwargs['defect_queries'] = self.current_detector.custom_queries
+                    if hasattr(self.current_detector, 'defect_threshold'):
+                        existing_kwargs['defect_threshold'] = self.current_detector.defect_threshold
+                    if hasattr(self.current_detector, 'query_labels'):
+                        existing_kwargs['query_labels'] = self.current_detector.query_labels
+                    
+                    # 커스텀 모델 경로 추가
+                    existing_kwargs['model_path'] = model_path
+                    
+                    # 새 하이브리드 탐지기 생성
+                    new_detector = ModelFactory.create_detector(self.detector_type, **existing_kwargs)
+                    if new_detector and new_detector.load_model():
+                        self.current_detector = new_detector
+                        print(f"✅ Hybrid detector recreated with custom model")
+                        return True
+                    else:
+                        print(f"❌ Failed to recreate hybrid detector")
+                        return False
+                
                 # 단순 YOLO 탐지기인 경우
                 elif hasattr(self.current_detector, 'model_path'):
                     self.current_detector.model_path = model_path

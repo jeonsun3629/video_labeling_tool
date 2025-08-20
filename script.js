@@ -169,7 +169,17 @@ function updateButtonStates() {
     
     // 3단계: AI 자동 라벨링 비디오 생성 - 비디오가 업로드되어야 함
     createBaseVideoBtn.disabled = !currentVideoPath;
-    createCustomVideoBtn.disabled = !currentVideoPath || !isCustomModelTrained;
+    
+    // 커스텀 비디오 버튼: 모델 타입에 따라 다른 조건
+    if (currentModelType === 'yolo_clip') {
+        // YOLO+CLIP 모델: YOLO 학습 없이도 CLIP으로 불량품 탐지 가능
+        createCustomVideoBtn.disabled = !currentVideoPath;
+        createCustomVideoBtn.textContent = '🎯 CLIP 불량품 탐지 비디오 생성';
+    } else {
+        // YOLO+DINOv2 모델: 커스텀 학습이 필요함
+        createCustomVideoBtn.disabled = !currentVideoPath || !isCustomModelTrained;
+        createCustomVideoBtn.textContent = '🎯 커스텀 객체 탐지 비디오 생성';
+    }
     
     // 4단계: 데이터 내보내기 - 데이터가 있어야 함
     exportBtn.disabled = annotations.length === 0;
@@ -1334,6 +1344,16 @@ async function switchToSelectedModel() {
             
             // 모델별 버튼 상태 업데이트
             updateButtonStates();
+            
+            // YOLO+CLIP 모델로 전환 시 추가 안내
+            if (selectedModelType === 'yolo_clip') {
+                updateSystemStatus(
+                    `✅ 모델이 ${getModelDisplayName(selectedModelType)}로 전환되었습니다.\n` +
+                    `🎯 CLIP 기반 불량품 탐지가 활성화되었습니다.\n` +
+                    `📹 커스텀 비디오 생성이 바로 가능합니다.`, 
+                    'success'
+                );
+            }
         } else {
             throw new Error(result.error || '모델 전환 실패');
         }

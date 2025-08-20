@@ -22,6 +22,8 @@ class YOLODINOv2HybridDetector(BaseDetector):
         self.yolo_detector = None
         self.dinov2_classifier = None
         self.universal_classifier = None
+        # YOLO 모델 관련 설정 저장
+        self.yolo_kwargs = {k: v for k, v in kwargs.items() if k in ['model_path', 'confidence_threshold']}
         self.similarity_threshold = kwargs.get('similarity_threshold', DINOV2_SIMILARITY_THRESHOLD)
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         
@@ -30,8 +32,8 @@ class YOLODINOv2HybridDetector(BaseDetector):
         try:
             print("📥 Loading YOLO + DINOv2 hybrid detector...")
             
-            # 1. YOLO 모델 로드
-            self.yolo_detector = YOLODetector()
+            # 1. YOLO 모델 로드 (커스텀 모델 경로 포함)
+            self.yolo_detector = YOLODetector(**self.yolo_kwargs)
             yolo_success = self.yolo_detector.load_model()
             
             if not yolo_success:
