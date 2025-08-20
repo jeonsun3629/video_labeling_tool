@@ -170,6 +170,9 @@ Thumbs.db
 *.webm
 *.m4v
 
+# 예외: archive 폴더의 파일들은 포함
+!archive/**/*
+
 # 이미지 파일들 (학습 데이터)
 *.jpg
 *.jpeg
