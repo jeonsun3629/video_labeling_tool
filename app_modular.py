@@ -443,6 +443,115 @@ def optimize_memory():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route('/api/run_grounded_sam_pipeline', methods=['POST'])
+def run_grounded_sam_pipeline():
+    """GroundedSAM 파이프라인 실행 (GroundingDINO + SAM2 + DINOv2)"""
+    try:
+        data = request.get_json()
+        video_path = data.get('video_path')
+        text_prompt = data.get('text_prompt')
+        box_threshold = data.get('box_threshold', 0.35)
+        text_threshold = data.get('text_threshold', 0.25)
+        current_time = data.get('current_time', 0)
+        frame_analysis = data.get('frame_analysis', True)
+        
+        if not video_path or not os.path.exists(video_path):
+            return jsonify({"error": "Video file not found"}), 400
+            
+        if not text_prompt or not text_prompt.strip():
+            return jsonify({"error": "Text prompt is required"}), 400
+        
+        # GroundedSAM 탐지기 확인
+        detector = model_manager.get_detector()
+        if not detector:
+            return jsonify({"error": "No detector loaded"}), 400
+        
+        # GroundedSAM 탐지기인지 확인
+        if model_manager.detector_type != 'grounded_sam_dinov2':
+            return jsonify({
+                "error": f"Current detector is {model_manager.detector_type}. Switch to 'grounded_sam_dinov2' first."
+            }), 400
+        
+        # 탐지기 설정 업데이트
+        if hasattr(detector, 'update_from_ui_config'):
+            detector.update_from_ui_config(
+                text_prompt=text_prompt,
+                box_threshold=box_threshold,
+                text_threshold=text_threshold
+            )
+        
+        # 비디오에서 현재 프레임 추출
+        import cv2
+        cap = cv2.VideoCapture(video_path)
+        if not cap.isOpened():
+            return jsonify({"error": "Failed to open video file"}), 500
+        
+        # 특정 시간으로 이동
+        cap.set(cv2.CAP_PROP_POS_MSEC, current_time * 1000)
+        ret, frame = cap.read()
+        cap.release()
+        
+        if not ret:
+            return jsonify({"error": "Failed to read frame from video"}), 500
+        
+        # GroundedSAM 파이프라인 실행
+        print(f"🚀 Running GroundedSAM pipeline with prompt: '{text_prompt}'")
+        detections = detector.detect(frame)
+        
+        if not detections:
+            return jsonify({
+                "status": "success",
+                "message": "No objects detected",
+                "total_detections": 0,
+                "annotations": []
+            })
+        
+        # 결과를 어노테이션 형식으로 변환
+        annotations = []
+        for detection in detections:
+            annotation = {
+                'frame_time': current_time,
+                'bbox': detection.get('bbox', [0, 0, 0, 0]),
+                'label': detection.get('class_name', 'unknown'),
+                'confidence': detection.get('confidence', 0.0),
+                'source': 'grounded_sam',
+                'method': detection.get('method', 'grounded_sam_dinov2'),
+                'grounding_prompt': text_prompt,
+                'grounding_confidence': detection.get('grounding_confidence', detection.get('confidence', 0.0)),
+                'has_mask': detection.get('has_mask', False),
+                'enhanced_by_dinov2': detection.get('enhanced_by_dinov2', False)
+            }
+            
+            # 추가 메타데이터
+            if 'original_phrase' in detection:
+                annotation['original_phrase'] = detection['original_phrase']
+            if 'mask_area' in detection:
+                annotation['mask_area'] = detection['mask_area']
+            
+            annotations.append(annotation)
+        
+        print(f"✅ GroundedSAM pipeline completed: {len(annotations)} detections")
+        
+        return jsonify({
+            "status": "success",
+            "message": "GroundedSAM pipeline completed successfully",
+            "total_detections": len(annotations),
+            "annotations": annotations,
+            "pipeline_info": {
+                "text_prompt": text_prompt,
+                "box_threshold": box_threshold,
+                "text_threshold": text_threshold,
+                "frame_time": current_time,
+                "detector_type": model_manager.detector_type
+            }
+        })
+        
+    except Exception as e:
+        print(f"❌ GroundedSAM pipeline error: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
     print("🎬 Video Labeling Server Starting...")
     

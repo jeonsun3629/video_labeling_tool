@@ -107,6 +107,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="model-option" data-model="grounded_sam_dinov2">
+                        <div class="model-card" id="model-grounded-sam">
+                            <div class="model-header">
+                                <span class="model-icon">📝🎯🧠</span>
+                                <span class="model-name">GroundedSAM + DINOv2</span>
+                                <span class="model-badge zero-shot">Zero-Shot</span>
+                            </div>
+                            <div class="model-description">
+                                텍스트 기반 자동 분할 + 특징 분석<br>
+                                <small>학습 불필요, 자연어로 객체 탐지</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <button id="switchModelBtn" class="btn-model-switch" disabled>모델 전환</button>
             </div>
@@ -189,6 +202,33 @@ a photo of a broken item</textarea>
                         <button id="updateClipSettingsBtn" class="btn-clip">🔧 CLIP 설정 업데이트</button>
                     </div>
                     <div id="clipStatus" class="status-display"></div>
+                </div>
+
+                <!-- GroundedSAM + DINOv2 텍스트 프롬프트 섹션 -->
+                <div class="groundedsam-prompt-section model-specific" data-model="grounded_sam_dinov2" style="display: none;">
+                    <h4>📝 GroundingDINO 텍스트 프롬프트</h4>
+                    <div class="groundedsam-description">
+                        찾고 싶은 객체를 자연어로 입력하세요. 마침표(.)로 구분하여 여러 객체를 동시에 찾을 수 있습니다.
+                        <br><strong>예시:</strong> "a screw on the conveyor belt . a washer . a bolt"
+                    </div>
+                    <div class="groundedsam-controls">
+                        <div class="text-prompt-input">
+                            <label>텍스트 프롬프트:</label>
+                            <textarea id="groundingPrompt" rows="3" placeholder="a screw on the conveyor belt . a washer . a bolt">a screw on the conveyor belt . a washer</textarea>
+                        </div>
+                        <div class="groundedsam-thresholds">
+                            <div class="threshold-control">
+                                <label>박스 임계값: <span id="boxThresholdValue">0.35</span></label>
+                                <input type="range" id="boxThresholdSlider" min="0.1" max="0.8" step="0.05" value="0.35">
+                            </div>
+                            <div class="threshold-control">
+                                <label>텍스트 임계값: <span id="textThresholdValue">0.25</span></label>
+                                <input type="range" id="textThresholdSlider" min="0.1" max="0.6" step="0.05" value="0.25">
+                            </div>
+                        </div>
+                        <button id="runGroundedSamBtn" class="btn-primary">📝🎯 GroundedSAM 파이프라인 실행</button>
+                    </div>
+                    <div id="groundedSamStatus" class="status-display"></div>
                 </div>
                 
                 <!-- YOLO 커스텀 모델 학습 섹션 -->

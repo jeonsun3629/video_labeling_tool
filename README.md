@@ -4,13 +4,13 @@
 
 ## ✨ 주요 기능
 
-- 🎥 **웹 기반 비디오 라벨링**: 브라우저에서 직접 동영상 업로드 및 마우스 드래그 바운딩 박스 생성
-- 🤖 **하이브리드 AI 모델**: YOLO + DINOv2 (커스텀 학습) / YOLO + CLIP (불량품 검사) 지원
-- 🧠 **DINOv2 패턴 학습**: 수동 라벨링 데이터에서 커스텀 객체의 시각적 패턴 자동 학습
-- 🚀 **YOLOv11 커스텀 훈련**: 수동 라벨링 데이터를 사용한 커스텀 모델 훈련 및 자동 로드
-- 🎯 **스마트 비디오 처리**: 고밀도 분석(초당 4프레임) 및 메모리 최적화된 배치 처리
-- ⚡ **실시간 프레임 제어**: 프레임별 정밀 탐색 및 재생 속도 조절
-- 💾 **표준 포맷 지원**: YOLO 학습 호환 JSON 출력 및 라벨링된 비디오 생성
+- 🎥 **웹 기반 비디오 라벨링**: 브라우저에서 직접 동영상을 업로드하고 라벨링
+- 🖱️ **직관적인 인터페이스**: 마우스 드래그로 간편한 바운딩 박스 생성
+- 🤖 **AI 자동 라벨링**: YOLOv11 + DINOv2를 활용한 정밀한 객체 탐지
+- 🧠 **DINOv2 지능형 패턴 학습**: 사용자 정의 라벨의 시각적 패턴을 자동 학습
+- 🎯 **범용 커스텀 라벨 지원**: 어떤 라벨이든 자동으로 세부 분류 학습
+- ⚡ **실시간 처리**: 프레임별 정밀 제어 및 즉시 결과 확인
+- 💾 **표준 포맷 지원**: YOLO 학습에 바로 사용 가능한 JSON 출력
 
 ## 🏗️ 시스템 구조
 
@@ -18,9 +18,9 @@
 Frontend (웹 브라우저)          Backend (모듈화된 Python 서버)
 ┌─────────────────────┐       ┌─────────────────────────────────┐
 │  HTML/CSS/JS        │ ←──→  │  Flask API (app_modular.py)     │
-│  - 비디오 플레이어   │       │  ┌─────────────────────────────┐ │
-│  - 캔버스 그리기     │       │  │ Services                    │ │
-│  - 라벨링 인터페이스 │       │  │ - ModelManager              │ │
+│  - 비디오 플레이어    │       │  ┌─────────────────────────────┐ │
+│  - 캔버스 그리기      │       │  │ Services                    │ │
+│  - 라벨링 인터페이스   │       │  │ - ModelManager              │ │
 └─────────────────────┘       │  │ - DetectionService          │ │
                               │  │ - TrainingService           │ │
                               │  │ - MemoryService             │ │
@@ -212,16 +212,78 @@ python app_modular.py
 
 ---
 
+### **GroundingDINO + SAM2 + DINOv2 파이프라인** 🎯
+> **용도**: 텍스트 기반 Zero-Shot 객체 분할 및 특징 분석 (학습 불필요)
+
+#### **동작 원리**
+```
+1. GroundingDINO → 2. SAM2 분할 → 3. DINOv2 분석 → 4. 최종 분류
+   텍스트 프롬프트    정교한 마스크     특징 추출        enhanced_label
+```
+
+#### **핵심 기능**
+- **📝 자연어 탐지**: "a screw on the conveyor belt . a washer" 형태로 여러 객체 동시 탐지
+- **✂️ 정교한 분할**: SAM2로 픽셀 단위 정확한 마스크 생성
+- **🧠 특징 분석**: DINOv2로 분할된 객체의 고차원 특징 추출 및 분류
+- **🚀 Zero-Shot**: 별도 학습 없이 텍스트만으로 즉시 사용 가능
+
+#### **사용 시나리오**
+- 제조업: `"a screw on the conveyor belt . a defective part . a washer"`
+- 의료: `"a person lying on the bed . medical equipment . a wheelchair"`
+- 보안: `"a suspicious object . a person with a bag . an abandoned item"`
+
+#### **설정 방법**
+1. **모델 선택**: GroundedSAM + DINOv2 모델 선택
+2. **텍스트 입력**: "찾고 싶은 객체를 자연어로 입력 (마침표로 구분)"
+3. **임계값 조정**: 박스 임계값(0.35), 텍스트 임계값(0.25) 슬라이더 조정
+4. **파이프라인 실행**: "📝🎯 GroundedSAM 파이프라인 실행" 버튼 클릭
+
+#### **설치 요구사항**
+```bash
+# GroundingDINO 설치
+git clone https://github.com/IDEA-Research/GroundingDINO.git
+cd GroundingDINO && pip install -e .
+
+# SAM2 설치  
+git clone https://github.com/facebookresearch/segment-anything-2.git
+cd segment-anything-2 && pip install -e .
+
+# 모델 파일 다운로드 (자동)
+# - GroundingDINO: groundingdino_swint_ogc.pth
+# - SAM2: sam2_hiera_large.pt
+```
+
+#### **파일 위치**
+- **파이프라인**: `models/detectors/grounded_sam_dinov2_detector.py`
+- **설정**: `config/settings.py` (GROUNDING_DINO_*, SAM2_* 설정)
+
+---
+
 ### **하이브리드 모델 비교**
 
-| 특징 | YOLOv11 + DINOv2 | YOLOv11 + CLIP |
-|------|------------------|-----------------|
-| **학습 방식** | 시각적 패턴 학습 | 텍스트-이미지 매칭 |
-| **입력 방식** | 수동 라벨링 데이터 | 자연어 텍스트 쿼리 |
-| **강점** | 정밀한 시각적 분류 | 유연한 상황 설명 |
-| **용도** | 객체 상태 분류 | 행동/상황 탐지 |
-| **설정 난이도** | 쉬움 (자동 학습) | 보통 (쿼리 작성) |
-| **확장성** | 높음 (패턴 축적) | 매우 높음 (무한 텍스트) |
+- **YOLOv11 + DINOv2**
+  - 학습 방식: 시각적 패턴 학습
+  - 입력 방식: 수동 라벨링 데이터
+  - 강점: 정밀한 시각적 분류
+  - 용도: 객체 상태 분류
+  - 설정 난이도: 쉬움 (자동 학습)
+  - 확장성: 높음 (패턴 축적)
+
+- **YOLOv11 + CLIP**
+  - 학습 방식: 텍스트-이미지 매칭
+  - 입력 방식: 자연어 텍스트 쿼리
+  - 강점: 유연한 상황 설명
+  - 용도: 행동/상황 탐지
+  - 설정 난이도: 보통 (쿼리 작성)
+  - 확장성: 매우 높음 (무한 텍스트)
+
+- **GroundedSAM + DINOv2** ⭐ **NEW**
+  - 학습 방식: Zero-Shot (학습 불필요)
+  - 입력 방식: 자연어 텍스트 프롬프트
+  - 강점: 정교한 분할 + 특징 분석
+  - 용도: 정밀한 객체 분할 및 분류
+  - 설정 난이도: 쉬움 (텍스트만 입력)
+  - 확장성: 매우 높음 (무한 텍스트 + 마스크)
 
 ### **통합 워크플로우**
 ```mermaid
@@ -258,7 +320,8 @@ video_labeling_tool/
 │   ├── detectors/          # 탐지 모델들
 │   │   ├── yolo_detector.py
 │   │   ├── yolo_dinov2_hybrid_detector.py
-│   │   └── yolo_clip_hybrid_detector.py
+│   │   ├── yolo_clip_hybrid_detector.py
+│   │   └── grounded_sam_dinov2_detector.py
 │   ├── classifiers/        # 분류 모델들
 │   │   ├── dinov2_classifier.py
 │   │   ├── clip_classifier.py
@@ -307,6 +370,9 @@ video_labeling_tool/
 - `GET /api/memory_status`: 메모리 상태 조회
 - `POST /api/optimize_memory`: 메모리 최적화 실행
 
+#### **🎯 GroundedSAM 파이프라인**
+- `POST /api/run_grounded_sam_pipeline`: GroundingDINO + SAM2 + DINOv2 파이프라인 실행
+
 ### 확장 가능성
 
 1. **✅ 구현 완료**:
@@ -322,7 +388,7 @@ video_labeling_tool/
    - **실시간 처리**: 웹캠 실시간 라벨링 + 하이브리드 분류
    - **데이터베이스 연동**: 학습된 패턴 영구 저장 및 공유
    - **다중 사용자**: 협업 라벨링 + 패턴 공유 기능
-   - **고급 모델**: SAM, GroundingDINO 등 최신 모델 통합
+   - **✅ GroundedSAM + DINOv2**: 텍스트 기반 Zero-Shot 객체 분할 + 특징 분석
 
 ## 🐛 문제 해결
 
@@ -350,11 +416,16 @@ video_labeling_tool/
    - CPU 모드로도 동작 가능 (느림)
    - PyTorch CUDA 호환성 확인
 
+6. **GroundedSAM 모델 로딩 실패**
+   - GroundingDINO 및 SAM2 라이브러리 설치 확인
+   - 모델 파일 다운로드 상태 확인 (`models/` 폴더)
+   - 사용 가능한 모델: `grounded_sam_dinov2`
+   - 충분한 GPU 메모리 확인 (8GB+ 권장)
+
 ## 📄 라이센스
 
 이 프로젝트는 교육 및 연구 목적으로 제작되었습니다.
 
 ## 🙏 기여
-
 
 버그 리포트, 기능 제안, 코드 기여를 환영합니다! 

@@ -31,6 +31,15 @@ const getDinov2InfoBtn = document.getElementById('getDinov2InfoBtn');
 const dinov2Status = document.getElementById('dinov2Status');
 const dinov2PatternsInfo = document.getElementById('dinov2PatternsInfo');
 
+// GroundedSAM + DINOv2 요소들
+const groundingPrompt = document.getElementById('groundingPrompt');
+const boxThresholdSlider = document.getElementById('boxThresholdSlider');
+const boxThresholdValue = document.getElementById('boxThresholdValue');
+const textThresholdSlider = document.getElementById('textThresholdSlider');
+const textThresholdValue = document.getElementById('textThresholdValue');
+const runGroundedSamBtn = document.getElementById('runGroundedSamBtn');
+const groundedSamStatus = document.getElementById('groundedSamStatus');
+
 // 3단계: AI 자동 라벨링 비디오 생성 요소들
 const createBaseVideoBtn = document.getElementById('createBaseVideoBtn');
 const createCustomVideoBtn = document.getElementById('createCustomVideoBtn');
@@ -1258,6 +1267,27 @@ function initializeModelSelection() {
         });
     }
     
+    // GroundedSAM 이벤트 리스너들
+    if (runGroundedSamBtn) {
+        runGroundedSamBtn.addEventListener('click', runGroundedSamPipeline);
+    }
+    
+    if (boxThresholdSlider) {
+        boxThresholdSlider.addEventListener('input', function() {
+            if (boxThresholdValue) {
+                boxThresholdValue.textContent = this.value;
+            }
+        });
+    }
+    
+    if (textThresholdSlider) {
+        textThresholdSlider.addEventListener('input', function() {
+            if (textThresholdValue) {
+                textThresholdValue.textContent = this.value;
+            }
+        });
+    }
+    
     // 초기 모델 상태 설정
     selectModel(currentModelType);
     updateCurrentModelDisplay();
@@ -1320,6 +1350,19 @@ async function switchToSelectedModel() {
             config = {
                 defect_queries: defectQueries,
                 defect_threshold: defectThreshold
+            };
+        }
+        
+        // GroundedSAM + DINOv2 모델의 경우 설정 추가
+        if (selectedModelType === 'grounded_sam_dinov2') {
+            const textPrompt = groundingPrompt ? groundingPrompt.value.trim() : 'a screw on the conveyor belt . a washer';
+            const boxThreshold = boxThresholdSlider ? parseFloat(boxThresholdSlider.value) : 0.35;
+            const textThreshold = textThresholdSlider ? parseFloat(textThresholdSlider.value) : 0.25;
+            
+            config = {
+                text_prompt: textPrompt,
+                box_threshold: boxThreshold,
+                text_threshold: textThreshold
             };
         }
         
@@ -1437,7 +1480,8 @@ async function updateClipSettings() {
 function getModelDisplayName(modelType) {
     const modelNames = {
         'yolo_dinov2': 'YOLO + DINOv2',
-        'yolo_clip': 'YOLO + CLIP (불량검사)'
+        'yolo_clip': 'YOLO + CLIP (불량검사)',
+        'grounded_sam_dinov2': 'GroundedSAM + DINOv2'
     };
     return modelNames[modelType] || modelType;
 }
@@ -1486,4 +1530,103 @@ window.addEventListener('load', async () => {
     updateWorkflowProgress();
     updateDataStatistics();
     console.log('🚀 4단계 워크플로우 시스템 초기화 완료');
-}); 
+});
+
+// ==================================
+//   GroundedSAM 파이프라인 실행 로직
+// ==================================
+
+async function runGroundedSamPipeline() {
+    if (!currentVideoPath) {
+        alert('먼저 비디오를 업로드해주세요.');
+        return;
+    }
+    
+    const promptText = groundingPrompt ? groundingPrompt.value.trim() : '';
+    if (!promptText) {
+        alert('찾고 싶은 객체를 텍스트 프롬프트로 입력해주세요.');
+        return;
+    }
+
+    const statusDisplay = groundedSamStatus;
+    
+    try {
+        if (statusDisplay) {
+            statusDisplay.textContent = `🚀 GroundedSAM 파이프라인 실행 중...\n1. GroundingDINO 탐지 → 2. SAM2 분할 → 3. DINOv2 분석`;
+            statusDisplay.className = 'status-display status-info';
+        }
+        
+        if (runGroundedSamBtn) {
+            runGroundedSamBtn.disabled = true;
+            runGroundedSamBtn.textContent = '🔄 파이프라인 실행 중...';
+        }
+
+        // 현재 프레임 시간 가져오기
+        const currentTime = videoPlayer ? videoPlayer.currentTime : 0;
+        
+        // GroundedSAM 파이프라인을 위한 설정 수집
+        const boxThreshold = boxThresholdSlider ? parseFloat(boxThresholdSlider.value) : 0.35;
+        const textThreshold = textThresholdSlider ? parseFloat(textThresholdSlider.value) : 0.25;
+
+        // 백엔드 API 호출
+        const response = await fetch('/api/run_grounded_sam_pipeline', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                video_path: currentVideoPath,
+                text_prompt: promptText,
+                box_threshold: boxThreshold,
+                text_threshold: textThreshold,
+                current_time: currentTime,
+                frame_analysis: true  // 현재 프레임만 분석
+            })
+        });
+
+        const data = await response.json();
+
+        if (data.status === 'success') {
+            if (statusDisplay) {
+                statusDisplay.textContent = `✅ 파이프라인 완료! 총 ${data.total_detections}개의 객체를 탐지하고 분석했습니다.`;
+                statusDisplay.className = 'status-display status-success';
+            }
+
+            // 결과 어노테이션을 기존 데이터에 추가
+            if (data.annotations && data.annotations.length > 0) {
+                const newAnnotations = data.annotations.map(ann => ({
+                    ...ann,
+                    source: 'grounded_sam',
+                    method: 'grounded_sam_dinov2'
+                }));
+                annotations = [...annotations, ...newAnnotations];
+                
+                // 캔버스에 결과 표시
+                drawAnnotations();
+                updateAnnotationsOutput();
+                updateDataStatistics();
+                
+                console.log(`📝 GroundedSAM 결과: ${newAnnotations.length}개 어노테이션 추가됨`);
+            }
+            
+            // 워크플로우 상태 업데이트 (GroundedSAM은 학습 단계를 건너뛰므로 3단계로 바로 이동)
+            workflowState.step2_training = true;
+            workflowState.step3_video = true;
+            workflowState.step4_data = true;
+            updateWorkflowProgress();
+
+        } else {
+            throw new Error(data.error || '알 수 없는 오류');
+        }
+
+    } catch (error) {
+        if (statusDisplay) {
+            statusDisplay.textContent = `❌ 파이프라인 오류: ${error.message}`;
+            statusDisplay.className = 'status-display status-error';
+        }
+        console.error('GroundedSAM Pipeline Error:', error);
+    } finally {
+        if (runGroundedSamBtn) {
+            runGroundedSamBtn.disabled = false;
+            runGroundedSamBtn.textContent = '📝🎯 GroundedSAM 파이프라인 실행';
+        }
+    }
+} 

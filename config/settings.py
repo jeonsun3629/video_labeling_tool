@@ -13,6 +13,7 @@ TRAINING_FOLDER = BASE_DIR / 'custom_training'
 AVAILABLE_DETECTORS = {
     'yolo_dinov2': 'models.detectors.yolo_dinov2_hybrid_detector.YOLODINOv2HybridDetector',  # YOLO + DINOv2 하이브리드
     'yolo_clip': 'models.detectors.yolo_clip_hybrid_detector.YOLOCLIPHybridDetector',  # YOLO + CLIP 하이브리드
+    'grounded_sam_dinov2': 'models.detectors.grounded_sam_dinov2_detector.GroundedSAMDINOv2Detector',  # GroundingDINO + SAM2 + DINOv2
 }
 
 AVAILABLE_CLASSIFIERS = {
@@ -36,6 +37,14 @@ DINOV2_SIMILARITY_THRESHOLD = 0.7
 # CLIP 설정 (미래 확장용)
 CLIP_MODEL_NAME = 'openai/clip-vit-base-patch32'
 CLIP_DEFECT_THRESHOLD = 0.35  # 더 현실적인 임계값으로 조정
+
+# Grounding DINO + SAM2 설정
+GROUNDING_DINO_CONFIG_PATH = 'models/grounding_dino/GroundingDINO_SwinT_OGC.py'
+GROUNDING_DINO_CHECKPOINT_PATH = 'models/grounding_dino/groundingdino_swint_ogc.pth'
+SAM2_CHECKPOINT_PATH = 'segment-anything-2/checkpoints/sam2.1_hiera_tiny.pt'
+SAM2_MODEL_CONFIG = 'sam2.1_hiera_t.yaml'
+GROUNDING_DINO_BOX_THRESHOLD = 0.35
+GROUNDING_DINO_TEXT_THRESHOLD = 0.25
 
 # 메모리 관리 설정
 MEMORY_LIMIT_RATIO = 0.85
